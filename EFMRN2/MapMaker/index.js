@@ -22,6 +22,7 @@ let translator = {
   lavaTile: "new Tile { TileId = 17, X = 0, Y = 0, Z = 0, Transparent = true, Texture = 'lava', Method = 11)",
   spikePitTile: "new Tile { TileId = 18, X = 0, Y = 0, Z = 0, Transparent = true, Texture = 'skikePit', Method = 11)"
 }
+
 $(document).ready(function(){
 $('#box > div').addClass('floor');
 $('div#box').on('click','div', function(){
@@ -32,7 +33,7 @@ $('div#box').on('click','div', function(){
 
 $('#go').on('click', function(){
   $('#output').text('');
-  let outputString ='[';
+  let outputString ='';
   for(let i = 0; i<10; i++){
     let midString = '[';
     for(let k = 0; k<10; k++){
@@ -48,7 +49,11 @@ $('#go').on('click', function(){
 });
 });
 
-
+function setMapSize(x, y)
+{
+  document.documentElement.style.setProperty(--mapX, '${x}');
+  document.documentElement.style.setProperty(--mapY, '${y}');
+}
 
 
 // i need to take make the value of each square in the UI have the x 
@@ -56,3 +61,21 @@ $('#go').on('click', function(){
 //generating the code for a level.  Maybe also have a select box for 
 //which z value you want the level to have.  possible function for 
 //adding connecting tiles for doors and holes.
+
+
+//form will ask for y and x this will be max y and max x
+//you will generate x*y divs
+//display : grid;
+//grid-Collumn-template: repeat(x, 1fr);
+
+//Math.Floor(div-Id-number/x) = y
+//div-Id-number%%x = which collumn you are in
+
+//let target = $("#ParentDiv");
+//target.style.Display = "grid";
+//target.style.grid-columns-template = "reapeat(${xInput}, 1fr)";
+//for(let i =1; i<=(x*y);i++)
+//{
+//
+//  target.append("<div id=${i}></div>");  
+//}

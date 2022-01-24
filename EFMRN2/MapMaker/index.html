@@ -8,7 +8,7 @@
 <body>
   <div id='outerContainer'>
     <div id='box'>
-      <div value='0'></div>
+      <!-- <div value='0'></div>
       <div value='1'></div>
       <div value='2'></div>
       <div value='3'></div>
@@ -107,9 +107,26 @@
       <div value='96'></div>
       <div value='97'></div>
       <div value='98'></div>
-      <div value='99'></div>
+      <div value='99'></div> -->
     </div>
+    <form id="level-setup">
+      <label for="z-value">Z level value (0-infinity)</label>
+      <input type="number" name='z-value' id='z-value' min="0">
+      </br>
+      </br>
+      <label for="x-max">x max (1-infinity)</label>
+      <input type="number" name='x-max' id='x-max' min="1">
+      </br>
+      </br>
+      <label for="y-max">y max (1-infinity)</label>
+      <input type="number" name='y-max' id='y-max' min="1">
+    </br>
+      <button type="submit">generate</button>
+    </form>
+    
+    
     <label>
+      <label for="type">Type of tile</label>
       <select name='type' id='type'>
         <option id="void">void</option>
         <option id="wall">wall</option>
@@ -130,6 +147,11 @@
         <option id="lavaTile">lavaTile</option>
         <option id="spikePitTile">spikePitTile</option>
       </select>
+      </br>
+      </br>
+      
+      </select>
+    </br>
       <button id='go'>go</button>
       <p id='output'></p>
     </label>

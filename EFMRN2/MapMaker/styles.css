@@ -1,8 +1,12 @@
+:root {
+  --mapx: '-';
+  --mapy: '-';
+}
 #box {
   height: 90vh;
   width: 90vh;
   display: grid;
-  grid-template-columns: repeat(10, 1fr);
+  grid-template-columns: repeat(var(--mapx), 1fr);
   outline:solid black;
 }
 
