@@ -1,0 +1,90 @@
+#box {
+  height: 90vh;
+  width: 90vh;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  outline:solid black;
+}
+
+#box > div {
+  width: 100%;
+  height: 100%;
+  border: solid black;
+  /* background-color: rgb(81, 139, 81); */
+}
+
+#box > div:hover {
+  filter: drop-shadow(0 0 2vh rgb(255, 208, 0));
+}
+#outerContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.void {
+  background-color: black;
+}
+
+.floor {
+  background-color: rgb(81, 139, 81);
+}
+
+.wall {
+  background-color: grey;
+}
+
+.door {
+  background-color: white;
+}
+
+.lockedDoor {
+  background-color: rgba(255, 255, 255, 0.808);
+}
+
+.key {
+  background-color: gold;
+}
+
+.conveyerN {
+  background-color: wheat;
+}
+
+.conveyerE {
+  background-color: wheat;
+}
+
+.conveyerS {
+  background-color: wheat;
+}
+
+.conveyerW {
+  background-color: wheat;
+}
+
+.hole {
+  background-color:rgb(138, 74, 49);
+}
+
+.table {
+  background-color: rgb(66, 51, 40);
+}
+
+.conveyerButton {
+  background-color: purple
+}
+
+.messageTile {
+  background-color: royalblue;
+}
+
+.portalTile {
+  background-color: aqua;
+}
+
+.lavaTile {
+  background-color: aqua;
+}
+
+.spikePitTile {
+  background-color: aqua;
+}
