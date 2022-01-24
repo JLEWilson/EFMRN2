@@ -1,26 +1,26 @@
 let output = [];
 for(let j = 0; j<100; j++){
-  output[j] = "new Tile(true, 'white')"
+  output[j] = "new Tile { TileId = 1, X = 0, Y = 0, Z = 0, Transparent = true, Texture = 'floor', Method = 1)"
 }
-let translator = {
-  door: "new Door(true,'door',x,y,z)",
-  floor: "new Tile(true, 'white')",
-  wall: "new Tile(false, 'black')",
-  void: "new Tile(false, 'void')",
-  lockedDoor: "new LockedDoor(false,'lockedDoor',x,y,z)",
-  key: "new Key(true,'key',x,y,z,message)",
-  table: "new Tile(false,'table')",
-  hole:"new Hole(true,'hole')",
-  conveyerN: "new Conveyer(true,'white','N')",
-  conveyerE: "new Conveyer(true,'white','E')",
-  conveyerS: "new Conveyer(true,'white','S')",
-  conveyerW: "new Conveyer(true,'white','W')",
-  conveyerButton: "new ConveyerButton(true,'white',x,y,z)",
-  trapDoor: "new TrapDoor(true,'white',x,y,z)",
-  messageTile: "new MessageTile(true,'white',message)",
-  portalTile: "new PortalTile(true,'white','portal')",
-  lavaTile: "new LavaTile(true,'white','lava')",
-  spikePitTile: "new spikePitTile(true,'white','spikePit')",
+let translator = {  
+  floor: "new Tile { TileId = 1, X = 0, Y = 0, Z = 0, Transparent = true, Texture = 'floor', Method = 1)",
+  wall: "new Tile { TileId = 2, X = 0, Y = 0, Z = 0, Transparent = false, Texture = 'wall', Method = 1)",
+  void: "new Tile { TileId = 3, X = 0, Y = 0, Z = 0, Transparent = false, Texture = 'void', Method = 1)",
+  door: "new Tile { TileId = 4, X = 0, Y = 0, Z = 0, Transparent = true, Texture = 'door', Method = 2)",
+  lockedDoor: "new Tile { TileId = 5, X = 0, Y = 0, Z = 0, Transparent = false, Texture = 'lockedDoor', Method = 2)",
+  key: "new Tile { TileId = 6, X = 0, Y = 0, Z = 0, Transparent = true, Texture = 'key', Method = 3)",
+  table: "new Tile { TileId = 7, X = 0, Y = 0, Z = 0, Transparent = false, Texture = 'table', Method = 1)",
+  hole:"new Tile { TileId = 8, X = 0, Y = 0, Z = 0, Transparent = true, Texture = 'hole', Method = 2)",
+  conveyerN: "new Tile { TileId = 9, X = 0, Y = 0, Z = 0, Transparent = true, Texture = 'conveyerN', Method = 4)",
+  conveyerE: "new Tile { TileId = 10, X = 0, Y = 0, Z = 0, Transparent = true, Texture = 'conveyerE', Method = 5)",
+  conveyerS: "new Tile { TileId = 11, X = 0, Y = 0, Z = 0, Transparent = true, Texture = 'conveyerS', Method = 6)",
+  conveyerW: "new Tile { TileId = 12, X = 0, Y = 0, Z = 0, Transparent = true, Texture = 'conveyerW', Method = 7)",
+  conveyerButton: "new Tile { TileId = 13, X = 0, Y = 0, Z = 0, Transparent = true, Texture = 'conveyerButton', Method = 8)",
+  trapDoor: "new Tile { TileId = 14, X = 0, Y = 0, Z = 0, Transparent = true, Texture = 'trapDoor', Method = 9)",
+  messageTile: "new Tile { TileId = 15, X = 0, Y = 0, Z = 0, Transparent = true, Texture = 'floor', Method = 10)",
+  portalTile: "new Tile { TileId = 16, X = 0, Y = 0, Z = 0, Transparent = true, Texture = 'portal', Method = 2)",
+  lavaTile: "new Tile { TileId = 17, X = 0, Y = 0, Z = 0, Transparent = true, Texture = 'lava', Method = 11)",
+  spikePitTile: "new Tile { TileId = 18, X = 0, Y = 0, Z = 0, Transparent = true, Texture = 'skikePit', Method = 11)"
 }
 $(document).ready(function(){
 $('#box > div').addClass('floor');
@@ -48,55 +48,7 @@ $('#go').on('click', function(){
 });
 });
 
-// let output = [];
-// for(let j = 0; j<100; j++){
-//   output[j] = "new TilePosition {TilePositionId = 1, TileId=2, x=0,y=6,z=0}"
-// }
-// let translator = {
-//   door: "new Door(true,'door',x,y,z)",
-//   floor: "new Tile(true, 'white')",
-//   wall: "new Tile(false, 'black')",
-//   void: "new Tile(false, 'void')",
-//   lockedDoor: "new LockedDoor(false,'lockedDoor',x,y,z)",
-//   key: "new Key(true,'key',x,y,z,message)",
-//   table: "new Tile(false,'table')",
-//   hole:"new Hole(true,'hole')",
-//   conveyerN: "new Conveyer(true,'white','N')",
-//   conveyerE: "new Conveyer(true,'white','E')",
-//   conveyerS: "new Conveyer(true,'white','S')",
-//   conveyerW: "new Conveyer(true,'white','W')",
-//   conveyerButton: "new ConveyerButton(true,'white',x,y,z)",
-//   trapDoor: "new TrapDoor(true,'white',x,y,z)",
-//   messageTile: "new MessageTile(true,'white',message)",
-//   bugTile: "new BattleTile(true,'white','bug')",
-//   typoTile: "new BattleTile(true,'white','typo')",
-//   unknownErrorTile: "new BattleTile(true,'white','unknownError')",
-// }
-// $(document).ready(function(){
-// $('#box > div').addClass('floor');
-// $('div#box').on('click','div', function(){
-//   output[parseInt($(this)[0].attributes[0].value)] = translator[$('#type').val()];
-//   $(this).removeClass();
-//   $(this).addClass($('#type').val());
-// });
 
-// $('#go').on('click', function(){
-//   $('#output').text('');
-//   let outputString ='[';
-//   for(let i = 0; i<10; i++){
-//     let midString = '[';
-//     for(let k = 0; k<10; k++){
-//       let x = i+(k*10)
-//       midString = midString + output[x] + ", ";
-//     }
-//     midString = midString.substring(0,midString.length-2);
-//     outputString = outputString + midString + '],';
-//   }
-//   outputString = outputString.substring(0,outputString.length-1);
-//   outputString = outputString + ']'
-//   $('#output').append(outputString);
-// });
-// });
 
 
 // i need to take make the value of each square in the UI have the x 
