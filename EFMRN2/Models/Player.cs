@@ -10,6 +10,6 @@ namespace EFMRN2.Models
     public string Color { get; set; }
     public bool Transparency { get; set; }
     public virtual ApplicationUser User { get; set; }
-    public virtual Item Item { get; set; }
+    // public virtual Item Item { get; set; }
   }
 }

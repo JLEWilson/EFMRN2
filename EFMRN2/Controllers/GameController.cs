@@ -17,13 +17,13 @@ namespace EFMRN2.Controllers
     private readonly EFMRN2Context _db;
     public GameController(EFMRN2Context db)
     {
-      _db=db;
+      _db = db;
     }
-  }
   [HttpGet]
-  public async Task<ActionResult<Tile>> Get(int x, int y, int z)
+  public ActionResult<Tile> Get(int x, int y, int z)
   {
-    Tile target = _db.Map.AsQueryable().Where(t=>t.x == x && t.y == y && t.z == z);
-    return 
+    Tile target = _db.Map.AsQueryable().Where(t=>t.X == x && t.Y == y && t.Z == z).FirstOrDefault();
+    return target;
+  }
   }
 }

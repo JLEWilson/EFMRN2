@@ -8,12 +8,13 @@ canvas.width = canvas.height;
 let q = canvas.height/11;
 
 
-function updateMap()
+async function updateMap()
 {
   let IncomingData = document.getElementId("TileDivs").childNodes;
   IncomingData.Map(function(square) {
     let coVariables = convertLinear(parseInt(square.id));
-
+    let target = getTile(coVariables[0],coVariables[1],coVariables[2]);
+    square.classList = target.Texture;
   });
   
 }
