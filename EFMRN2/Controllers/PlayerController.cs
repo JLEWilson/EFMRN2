@@ -29,18 +29,22 @@ namespace EFMRN2.Controllers
       _db.SaveChanges();
       return RedirectToAction("Index", "Home");
     }
-    public ActionResult MovePlayer(Player player, bool n, bool s, bool e, bool w)
+    public void MovePlayer(Player player, bool n, bool s, bool e, bool w)
     {
       var Destination = GetDestination(player, n, s, e, w);
+      Tile targetTile;
       if(CheckTransparency(Destination[0],Destination[1],Destination[2]))
       {
+        targetTile = _db.Map.FirstOrDefault(t=>t.X==Destination[0]&&t.Y==Destination[1]&&t.Z==Destination[2]);
+        MapController.list[1].TileAction(player, targetTile);
         player.X = Destination[0];
         player.Y = Destination[1];
         player.Z = Destination[2];
         _db.Entry(player).State = EntityState.Modified;
         _db.SaveChanges();
       }
-      return RedirectToAction("TileAction","Map", new {p=player});
+      targetTile = null;
+      MapController.list[1].TileAction(player, targetTile);
     }
     public bool CheckTransparency(int x, int y, int z)
     {
@@ -93,3 +97,5 @@ namespace EFMRN2.Controllers
     }
   }
 }
+
+
