@@ -26,27 +26,28 @@ let translator = {
 $(document).ready(function() { 
     $('#level-setup').on('submit', function() {
       event.preventDefault();
-    let target = $('#box');
-    let x = $('#x-max').val();
-    let y = $('#y-max').val();
-    setMapSize(x);
-    let q = target.width()/x;
-    console.log(target.width());
-    console.log(q);
+      switchForm();
+      let target = $('#box');
+      let x = $('#x-max').val();
+      let y = $('#y-max').val();
+      setMapSize(x);
+      let q = target.width()/x;
+      console.log(target.width());
+      console.log(q);
     
-    for(let i = 1; i <= (x * y); i++) {
-      target.append('<div id="' + i + '"></div>')
-    }
-    
-    for(let j = 2; j<(x*y); j++)
-    {
-      stonyNose = document.getElementById(j);
-      stonyNose.style.width = q+"px";
-      stonyNose.style.height = q+"px";
-    }
-    console.log(stonyNose.style.height);
-    $('#box > div').addClass('floor');
-  })
+      for(let i = 1; i <= (x * y); i++) {
+        target.append('<div id="' + i + '"></div>')
+      }
+      
+      for(let j = 2; j<(x*y); j++)
+      {
+        stonyNose = document.getElementById(j);
+        stonyNose.style.width = q+"px";
+        stonyNose.style.height = q+"px";
+      }
+      console.log(stonyNose.style.height);
+      $('#box > div').addClass('floor');
+    })
   
    
 
@@ -78,6 +79,11 @@ function setMapSize(x) {
   // document.documentElement.style.setProperty(`--mapX`, `'${x}'`);
   document.getElementById('box').style.gridTemplateColumns = "repeat("+x+",1fr)";
   console.log("iran" + x)
+}
+
+function switchForm() {
+  $('#level-setup').hide();
+  $('#scrappydoo').show();
 }
 
 

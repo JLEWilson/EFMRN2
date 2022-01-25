@@ -25,6 +25,10 @@
   grid-template-rows: 1fr 1fr;
 }
 
+#scrappydoo {
+  display: none;
+}
+
 .void {
   background-color: black;
 }
