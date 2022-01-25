@@ -35,9 +35,6 @@ namespace EFMRN2.Controllers
 
           
         }
-        
-
-        //A route to run tile methods
 
         //A route to get new map tiles( When the player moves north get the new north row.)
         public Tile GetPlayerTile(Player p)
