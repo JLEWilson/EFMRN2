@@ -1,0 +1,12 @@
+#TileDivs > div {
+  background-color: blue;
+  border: .25em solid black;
+}
+
+#GameContainer {
+  margin: 0 auto;
+}
+
+h1 {
+  color: blue;
+}
