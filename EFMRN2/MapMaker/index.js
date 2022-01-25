@@ -29,20 +29,32 @@ $(document).ready(function() {
     let target = $('#box');
     let x = $('#x-max').val();
     let y = $('#y-max').val();
+    setMapSize(x);
+    let q = target.width()/x;
+    console.log(target.width());
+    console.log(q);
+    
     for(let i = 1; i <= (x * y); i++) {
-      console.log(i)
-      target.append("<div id=$'{i}'></div>")
+      target.append('<div id="' + i + '"></div>')
     }
+    
+    for(let j = 2; j<(x*y); j++)
+    {
+      stonyNose = document.getElementById(j);
+      stonyNose.style.width = q+"px";
+      stonyNose.style.height = q+"px";
+    }
+    console.log(stonyNose.style.height);
     $('#box > div').addClass('floor');
   })
   
    
 
-// $('div#box').on('click','div', function(){
-//   output[parseInt($(this)[0].attributes[0].value)] = translator[$('#type').val()];
-//   $(this).removeClass();
-//   $(this).addClass($('#type').val());
-// });
+$('div#box').on('click','div', function(){
+  output[parseInt($(this)[0].attributes[0].value)] = translator[$('#type').val()];
+  $(this).removeClass();
+  $(this).addClass($('#type').val());
+});
 
   $('#go').on('click', function(){
     $('#output').text('');
@@ -62,10 +74,11 @@ $(document).ready(function() {
   });
 });
 
-// function setMapSize(x)
-// {
-//   document.documentElement.style.setProperty(--mapX, '${x}');
-// }
+function setMapSize(x) {
+  // document.documentElement.style.setProperty(`--mapX`, `'${x}'`);
+  document.getElementById('box').style.gridTemplateColumns = "repeat("+x+",1fr)";
+  console.log("iran" + x)
+}
 
 
 // i need to take make the value of each square in the UI have the x 

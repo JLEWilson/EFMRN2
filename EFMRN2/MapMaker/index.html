@@ -3,7 +3,7 @@
 <head>
   <link href="styles.css" type="text/css" rel="stylesheet">
   <script src="jquery-3.6.0.js"></script>
-  <title>Mr. Roboger 2 map maker</title>
+  <title>Mr. Roboger's 2 map maker</title>
 </head>
 <body>
   <div id='outerContainer'>
@@ -111,15 +111,15 @@
     </div>
     <form id="level-setup">
       <label for="z-value">Z level value (0-infinity)</label>
-      <input type="number" name='z-value' id='z-value' min="0">
+      <input type="number" name='z-value' id='z-value' min="0" required=true>
       </br>
       </br>
       <label for="x-max">x max (1-infinity)</label>
-      <input type="number" name='x-max' id='x-max' min="1">
+      <input type="number" name='x-max' id='x-max' min="1" required=true>
       </br>
       </br>
       <label for="y-max">y max (1-infinity)</label>
-      <input type="number" name='y-max' id='y-max' min="1">
+      <input type="number" name='y-max' id='y-max' min="1" required=true>
     </br>
       <button type="submit">generate</button>
     </form>
