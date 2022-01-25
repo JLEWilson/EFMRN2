@@ -3,6 +3,7 @@ namespace EFMRN2.Models
   public class Player
   {
     public int PlayerId { get; set; }
+    public string UserId {get;set;}
     public int X { get; set; }
     public int Y { get; set; }
     public int Z { get; set; }

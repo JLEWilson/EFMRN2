@@ -10,7 +10,6 @@
 <hr />
 
 <h2>Register an Account</h2>
-<hr />
 @using (Html.BeginForm("Register", "Account", FormMethod.Post))
 {
     @Html.LabelFor(user => user.Email)
@@ -22,5 +21,5 @@
     @Html.LabelFor(user=> user.ConfirmPassword)
     @Html.PasswordFor(user=> user.ConfirmPassword)
 
-    <input type="submit" value="Register" />
+    <input type="submit" value="Register" class="btn register"/>
 }

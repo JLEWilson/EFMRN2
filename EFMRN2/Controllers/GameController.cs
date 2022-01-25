@@ -25,5 +25,17 @@ namespace EFMRN2.Controllers
     Tile target = _db.Map.AsQueryable().Where(t=>t.X == x && t.Y == y && t.Z == z).FirstOrDefault();
     return target;
   }
+  [HttpGet("AllPlayers")]
+  public async Task<ActionResult<IEnumerable<Player>>> GetAllPlayer()
+  {
+    
+    return await _db.Players.ToListAsync();
+  }
+  [HttpGet("player")]
+  public async Task<ActionResult<Player>> GetPlayer(int id)
+  {
+    Player target = await _db.Players.FindAsync(id);
+    return target;
+  }
   }
 }
