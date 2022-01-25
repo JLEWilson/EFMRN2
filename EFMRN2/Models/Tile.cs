@@ -8,6 +8,7 @@ namespace EFMRN2.Models
     public int Z { get; set; }
     public bool Transparent { get; set; }
     public string Texture { get; set; }
-    public int Method { get; set; }
+    public string Aux { get; set; }
+    public int Method {get; set;}
   }
 }
