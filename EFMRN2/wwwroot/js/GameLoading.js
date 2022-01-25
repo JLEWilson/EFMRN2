@@ -25,3 +25,15 @@ function convertLinear(x,l)
 }
 
 //get request to obtain a tile from a specific location (ajax request to the game controller)
+static async function getTile(x,y,z)
+{
+  try{
+    const response = await fetch(`https://localhost:5000/api/tile/?x=${X},y=${y},z=${z}`);
+    if(!response.ok) {
+        throw Error(response.statusText);        
+      }
+      return response.json();
+    } catch(error) {  
+      return error.message;
+    }
+}
