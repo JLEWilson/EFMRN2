@@ -1,3 +1,7 @@
+body {
+  background-color: rgb(246,248,246);
+}
+
 #TileDivs > div {
   background-color: blue;
   border: .25em solid black;
@@ -7,6 +11,11 @@
   margin: 0 auto;
 }
 
-h1 {
-  color: blue;
+#Account-Head-div {
+  width: fit-content;
+  color: rgb(48,84,49);
+}
+
+#Account-Head-div h3 {
+  text-align: right;
 }

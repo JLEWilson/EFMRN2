@@ -16,15 +16,19 @@ canvas.style.position = "absolute";
 
 let q = canvas.height/dim;
 
+// setInterval(updateMap, 1000);
+updateMap();
 
 async function updateMap()
 {
-  let IncomingData = document.getElementId("TileDivs").children;
-  IncomingData.Map(function(square) {
+  let IncomingData = Array.from(document.getElementById("TileDivs").children);
+  console.log(IncomingData);
+  IncomingData.map(function(square) {
     square.style.width = q+"px";
     square.style.height = q+"px";
-    let coVariables = convertLinear(parseInt(square.id));
-    let target = getTile(coVariables[0],coVariables[1],coVariables[2]);
+    let coVariables = convertLinear(dim,parseInt(square.id));
+    let target = getTile(coVariables[0],coVariables[1],0);
+    console.log(target);
     square.classList = target.Texture;
   });
   
@@ -32,7 +36,9 @@ async function updateMap()
 
 function convertLinear(x,l)
 {
-  let output = [l%x, l-(l%x)/x]
+  let output = [l%x, ((l-(l%x))/x)+1]
+  console.log("for position "+l);
+  console.log(output);
   return output;
 }
 
@@ -40,7 +46,7 @@ function convertLinear(x,l)
 async function getTile(x,y,z)
 {
   try{
-    const response = await fetch(`https://localhost:5000/api/tile/?x=${X},y=${y},z=${z}`);
+    const response = await fetch(`https://localhost:5000/api/Game/?x=${x}&y=${y}&z=${z}`);
     if(!response.ok) {
         throw Error(response.statusText);        
       }
