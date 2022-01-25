@@ -23,37 +23,49 @@ let translator = {
   spikePitTile: "new Tile { TileId = 18, X = 0, Y = 0, Z = 0, Transparent = true, Texture = 'skikePit', Method = 11)"
 }
 
-$(document).ready(function(){
-$('#box > div').addClass('floor');
-$('div#box').on('click','div', function(){
-  output[parseInt($(this)[0].attributes[0].value)] = translator[$('#type').val()];
-  $(this).removeClass();
-  $(this).addClass($('#type').val());
-});
-
-$('#go').on('click', function(){
-  $('#output').text('');
-  let outputString ='';
-  for(let i = 0; i<10; i++){
-    let midString = '[';
-    for(let k = 0; k<10; k++){
-      let x = i+(k*10)
-      midString = midString + output[x] + ", ";
+$(document).ready(function() { 
+    $('#level-setup').on('submit', function() {
+      event.preventDefault();
+    let target = $('#box');
+    let x = $('#x-max').val();
+    let y = $('#y-max').val();
+    for(let i = 1; i <= (x * y); i++) {
+      console.log(i)
+      target.append("<div id=$'{i}'></div>")
     }
-    midString = midString.substring(0,midString.length-2);
-    outputString = outputString + midString + '],';
-  }
-  outputString = outputString.substring(0,outputString.length-1);
-  outputString = outputString + ']'
-  $('#output').append(outputString);
-});
+    $('#box > div').addClass('floor');
+  })
+  
+   
+
+// $('div#box').on('click','div', function(){
+//   output[parseInt($(this)[0].attributes[0].value)] = translator[$('#type').val()];
+//   $(this).removeClass();
+//   $(this).addClass($('#type').val());
+// });
+
+  $('#go').on('click', function(){
+    $('#output').text('');
+    let outputString ='';
+    for(let i = 0; i<10; i++){
+      let midString = '[';
+      for(let k = 0; k<10; k++){
+        let x = i+(k*10)
+        midString = midString + output[x] + ", ";
+      }
+      midString = midString.substring(0,midString.length-2);
+      outputString = outputString + midString + '],';
+    }
+    outputString = outputString.substring(0,outputString.length-1);
+    outputString = outputString + ']'
+    $('#output').append(outputString);
+  });
 });
 
-function setMapSize(x, y)
-{
-  document.documentElement.style.setProperty(--mapX, '${x}');
-  document.documentElement.style.setProperty(--mapY, '${y}');
-}
+// function setMapSize(x)
+// {
+//   document.documentElement.style.setProperty(--mapX, '${x}');
+// }
 
 
 // i need to take make the value of each square in the UI have the x 
@@ -79,3 +91,12 @@ function setMapSize(x, y)
 //
 //  target.append("<div id=${i}></div>");  
 //}
+
+
+// $(document).ready(function(){
+//   $('#box > div').addClass('floor');
+//   $('div#box').on('click','div', function(){
+//     output[parseInt($(this)[0].attributes[0].value)] = translator[$('#type').val()];
+//     $(this).removeClass();
+//     $(this).addClass($('#type').val());
+//   });
