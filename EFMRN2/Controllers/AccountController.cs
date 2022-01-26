@@ -34,15 +34,16 @@ namespace EFMRN2.Controllers
       IdentityResult result = await _userManager.CreateAsync(user, model.Password);
       if (result.Succeeded)
       {
-        var newPlayer = new Player();
-        newPlayer.User = user;
-        newPlayer.X = 0;
-        newPlayer.Y = 0;
-        newPlayer.Z = 0;
-        newPlayer.Transparency = false;
-        newPlayer.Bearing = 2;
-        newPlayer.Color = "red";
-        _db.Players.Add(newPlayer);
+        // var newPlayer = new Player{UserId = user.Id, X = 0, Y = 0, Z = 0, Transparency = false, Bearing = 2, Color = "red"};
+        // newPlayer.UserId = user.Id;
+        // newPlayer.X = 0;
+        // newPlayer.Y = 0;
+        // newPlayer.Z = 0;
+        // newPlayer.Transparency = false;
+        // newPlayer.Bearing = 2;
+        // newPlayer.Color = "red";
+        _db.Players.Add(new Player{UserId = user.Id, X = 4, Y = 4, Z = 0, Transparency = false, Bearing = 2, Color = "red"});
+        _db.SaveChanges();
         return RedirectToAction("Index");
       }
       else
