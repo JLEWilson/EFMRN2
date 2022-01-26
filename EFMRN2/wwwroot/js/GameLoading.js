@@ -2,6 +2,11 @@ let canvas = document.getElementById("DisplayCanvas");
 let brush = canvas.getContext("2d");
 let TilesDavis = document.getElementById("TileDivs");
 
+var keysDown = {};
+document.addEventListener("keydown",(e)=>{keysDown[e.keyCode] = true;}, false);
+document.addEventListener('keyup',(e)=>{delete keysDown[e.keyCode];}, false);
+
+
 let dim = 7;
 
 canvas.parentNode.style.height = window.innerHeight*0.8+"px";
@@ -16,10 +21,23 @@ canvas.style.position = "absolute";
 
 let q = canvas.height/dim;
 
-// setInterval(updateMap, 1000);
-var PlayerId = 1;
-updateMap();
+setInterval(go, 1000);
+var PlayerId = 2;
 
+function go()
+{
+  let smellyPomegranite = takeInput();
+  let apiString = 'http://localhost:5000/api/Game/move/?pid='+PlayerId+'&n='+smellyPomegranite[0]+'&s='+smellyPomegranite[1]+'&e='+smellyPomegranite[2]+'&w='+smellyPomegranite[3]+'';
+  console.log(apiString);
+  fetch(apiString);
+  updateMap();
+}
+
+function takeInput(){
+  let keyStates=[(38 in keysDown ),(40 in keysDown),(39 in keysDown),(37 in keysDown)];
+  console.log(keyStates)
+  return keyStates;
+}
 
 async function updateMap()
 {
@@ -30,13 +48,11 @@ async function updateMap()
   let y = player.y;
   let z = player.z;
   let IncomingData = Array.from(document.getElementById("TileDivs").children);
-  console.log(IncomingData);
   for(let i = 0; i<IncomingData.length;i++) {
     // square.style.width = q+"px";
     // square.style.height = q+"px";
     let coVariables = convertLinear(dim,parseInt(IncomingData[i].id));
     let target = await getTile(coVariables[0],coVariables[1],z);
-    console.log(target);
     IncomingData[i].classList = target.texture;
   }
   
