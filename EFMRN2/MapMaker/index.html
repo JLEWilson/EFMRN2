@@ -170,6 +170,7 @@
     
       <label for="texture-select">select texture string</label>
       <select name='texture-select' id='texture-select'>
+        <option id="void" value="void">void</option>
         <option id="floor" value="floor">floor</option>
         <option id="wall" value="wall">wall</option>
         <option id="door" value="door">door</option>
@@ -209,7 +210,17 @@
       </br>
       </br>
     
+      <label for="idMod-select">select an Id modifier number</label>
+      <input type="number" name='idMod-select' id='idMod-select' min="0" required=true>
+  
+      </br>
+      </br>
+    
     </label>
+
+      
+    
+    
   </div>
 </body> 
 <script src="index.js"></script>

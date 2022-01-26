@@ -22,15 +22,20 @@
 //   lavaTile: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'lava', Aux = '0', Method = 9 }",
 //   spikePitTile: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'spikePit', Aux = '0', Method = 9 }"
 // }
-
+let outputQ = [];
+let x;
+let y;
+let z;
+let finalString = "";
+let crazyArray = [];
 $(document).ready(function() { 
   $('#level-setup').on('submit', function() {
     event.preventDefault();
     switchForm();
     let target = $('#box');
-    let x = $('#x-max').val();
-    let y = $('#y-max').val();
-    let z = $('#z-value').val();
+    x = $('#x-max').val();
+    y = $('#y-max').val();
+    z = $('#z-value').val();
     setMapSize(x);
     let q = target.width()/x;
   
@@ -38,8 +43,7 @@ $(document).ready(function() {
       target.append('<div id="' + i + '"></div>')
     }
     
-    for(let j = 2; j<(x*y); j++)
-    {
+    for(let j = 2; j<(x*y); j++) {    
       stonyNose = document.getElementById(j);
       stonyNose.style.width = q+"px";
       stonyNose.style.height = q+"px";
@@ -47,7 +51,7 @@ $(document).ready(function() {
     $('#box > div').addClass('floor');
 
     
-  let translator = {  
+    let translator = {  
       floor: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'floor', Aux = '0', Method = 0 }",
       wall: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = false, Texture = 'wall', Aux = '0', Method = 0 }",
       void: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = false, Texture = 'void', Aux = '0', Method = 0 }",
@@ -77,52 +81,73 @@ $(document).ready(function() {
 
     let output = [];
     for(let j = 0; j< (x*y); j++){
-      output[j] = "new Tile { TileId = " + (j+1) + ", X = " + convertLinearX(x,j) + ", Y = " + convertLinearY(x,j) + ", Z = " + z + ", Transparent = " + $("#transparent-select").val() + ", Texture = " + $("#texture-select").val() + ", Aux = " + $("#aux-select").val() + ", Method = " + $("#method-select").val() + " },"
+      output[j] = "new Tile { TileId = " + (j+1) + ", X = " + convertLinearX(x,j) + ", Y = " + convertLinearY(x,j) + ", Z = " + z + ", Transparent = true, Texture = 'turtle', Aux = 'glorp', Method = 'plumbus' },"
     }
 
-    // string maker below
-    $('#go').on('click', function(){
-      $('#output').text('');
-      let outputString ='';
-      let xCord = 0;
-      let yCord = 0;
-      for(let i = 0; i<x; i++){
-        let midString = ' ';
-        for(let k = 0; k<y; k++){
-          let index = i+(k*x);
-          midString = midString + output[index] + "</br>";
-          console.log(midString);
-        }
-        midString = midString.substring(0,midString.length-2);
-        outputString = outputString + "</br>" + midString+ "</br>";
-      }
-      outputString = outputString.substring(0,outputString.length-1);
-      $('#output').append(outputString);
-    });    
-  })
+  crazyArray = output.slice(0)
   
+  // string maker below
+  $('#go').on('click', function(){
+    $('#output').text('');
+    let outputString ='';
+    for(let i = 0; i<x; i++){
+      let midString = ' ';
+      for(let k = 0; k<y; k++){
+        let index = i+(k*x);
+        midString = midString + outputQ[index] + "</br>";
+        // console.log(midString);
+        console.log(outputQ[index])
+      }
+      midString = midString.substring(0,midString.length-2);
+      outputString = outputString + "</br>" + midString+ "</br>";
+    }
+    outputString = outputString.substring(0,outputString.length-1);
+    $('#output').append(outputString);
+    console.log(output)
+  }); 
+});
+
+  for(let j = 0; j< (x*y); j++){
+      outputQ[j] = "new Tile { TileId = " + (j+1) + ", X = " + convertLinearX(x,j) + ", Y = " + convertLinearY(x,j) + ", Z = " + z + ", Transparent = true, Texture = 'turtle', Aux = 'glorp', Method = 'plumbus' },"
+      
+    }
+
   $('div#box').on('click','div', function(){
-    // output[parseInt($(this)[0].attributes[0].value)] = translator[$('#type').val()];
-    // output
+    outputQ[+this.id - 1] = "new Tile { TileId = " + (+this.id + +$("#idMod-select").val()) + ", X = " + convertLinearX(x,this.id - 1) + ", Y = " + convertLinearY(x,this.id -1) + ", Z = " + z + ", Transparent = " + $("#transparent-select").val() + ", Texture = " + $("#texture-select").val() + ", Aux = " + $("#aux-select").val() + ", Method = " + $("#method-select").val() + " },";
+    
+    
+        // console.log(outputQ);
+        // outputQ.forEach(function(string) {
+        //   if (string.includes("TileId = " + (this.id))) {
+        //     finalString = string.replace("true", $("#transparent-select").val());
+        //     finalString = string.replace("turtle", $("#texture-select").val());
+        //     finalString = string.replace("glorp", $("#aux-select").val());
+        //     finalString = string.replace("plumbus", $("#method-select").val());
+        //     console.log(finalString);
+        //   }
+          
+
+        // })
+        
+        // Have to find a way to have a unique TileId for every Tile in the entire database
+
+         
+      
     $(this).removeClass();
     $(this).addClass($('#type').val());
+    // output[this.id]
   }); 
+
+
 });
 
 function setMapSize(x) {
   document.getElementById('box').style.gridTemplateColumns = "repeat("+x+",1fr)";
-  console.log("iran" + x)
 }
 
 function switchForm() {
   $('#level-setup').hide();
-  $('.scrappydoo').show();
-  
-}
-
-function stringMaker() {
-
-
+  $('.scrappydoo').show();  
 }
 
 
@@ -184,3 +209,20 @@ function convertLinearY(x, l)
   return outputY;
 }
 
+// let outputStringArray = outputString.split('},');
+// console.log(outputStringArray)
+// for(let i = 0; i<outputStringArray.length; i++)  {
+//   let finalString = "";
+//   if (outputStringArray[i].includes("TileId = " + (i+ 1))) {
+    
+//     outputStringArray[i].replace("true", $("#transparent-select").val());
+//     outputStringArray[i].replace("turtle", $("#texture-select").val());
+//     outputStringArray[i].replace("glorp", $("#aux-select").val());
+//     outputStringArray[i].replace("plumbus", $("#method-select").val());
+//     return outputStringArray;
+//   }
+//   outputStringArray.forEach(element => {
+//       finalString.append(element)
+//   });
+//   return finalString;
+// }
