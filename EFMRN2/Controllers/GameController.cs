@@ -37,6 +37,14 @@ namespace EFMRN2.Controllers
       .Where(t=>(t.X>=(tp.X-range)&&t.X<=(tp.X+range))&&(t.Y>=(tp.Y-range)&&t.Y<=(tp.Y+range))).OrderBy(t=>t.Y).ThenBy(t=>t.X).ToList();
     return target;
   }
+  [HttpGet("fPlayer")]
+  public ActionResult<IEnumerable<Player>> GetLocalPlayer(int pid, int range)
+  {
+    Player tp = _db.Players.FirstOrDefault(p=>p.PlayerId == pid);
+    List<Player> target = _db.Players.AsQueryable()
+      .Where(t=>t.PlayerId!=pid&&(t.X>=(tp.X-range)&&t.X<=(tp.X+range))&&(t.Y>=(tp.Y-range)&&t.Y<=(tp.Y+range))).OrderBy(t=>t.Y).ThenBy(t=>t.X).ToList();
+    return target;
+  }
 
   [HttpGet("AllPlayers")]
   public async Task<ActionResult<IEnumerable<Player>>> GetAllPlayer()
