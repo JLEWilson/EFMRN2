@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using EFMRN2.Models;
 
+using System.Security.Claims;
 namespace EFMRN2.Controllers
 {
     public class HomeController : Controller
@@ -29,6 +30,8 @@ namespace EFMRN2.Controllers
         }
         public IActionResult Game()
         {
+            var user = this.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            ViewBag.UserId = user;
             return View();
         }
 

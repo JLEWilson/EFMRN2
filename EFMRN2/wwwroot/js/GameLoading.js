@@ -1,6 +1,8 @@
 let canvas = document.getElementById("DisplayCanvas");
 let brush = canvas.getContext("2d");
 let TilesDavis = document.getElementById("TileDivs");
+let user = document.getElementById("user");
+
 
 var keysDown = {};
 document.addEventListener("keydown",(e)=>{keysDown[e.keyCode] = true;}, false);
@@ -23,13 +25,20 @@ TilesDavis.style.display = "grid";
 TilesDavis.style.gridTemplateColumns="repeat("+dim+",1fr)";
 TilesDavis.style.position="absolute";
 
-
 let q = canvas.height/dim;
+
+console.log(user.textContent);
+var PlayerId =0;
+setPlayer(user.textContent);
+async function setPlayer(s)
+{
+  var test = await getPlayerByUser(s);
+  PlayerId = test.playerId;
+  console.log(PlayerId);
+}
 
 setInterval(go, 1000/6);
 // go();
-var PlayerId = 3;
-
 
 async function go()
 {
@@ -89,7 +98,7 @@ function DrawSelf(input)
   brush.fill();
 }
 
-function DrawPlayer(x,y,input)
+async function DrawPlayer(x,y,input)
 {
   brush.fillStyle = input.color;
   brush.beginPath();
@@ -163,6 +172,18 @@ async function getTile(x,y,z)
 {
   try{
     const response = await fetch(`http://localhost:5000/api/Game/?x=${x}&y=${y}&z=${z}`);
+    if(!response.ok) {
+        throw Error(response.statusText);        
+      }
+      return response.json();
+    } catch(error) {  
+      return error.message;
+    }
+}
+async function getPlayerByUser(id)
+{
+  try{
+    const response = await fetch(`http://localhost:5000/api/Game/user/?pid=${id}`);
     if(!response.ok) {
         throw Error(response.statusText);        
       }

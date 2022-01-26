@@ -60,6 +60,12 @@ namespace EFMRN2.Controllers
     Player target = await _db.Players.FindAsync(id);
     return target;
   }
+  [HttpGet("user")]
+  public ActionResult<Player> GetPlayerById(string pid)
+  {
+    Player target = _db.Players.FirstOrDefault(p=>p.UserId==pid);
+    return target;
+  }
 
 
   [HttpGet("move")]
