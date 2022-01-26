@@ -8,108 +8,10 @@
 <body>
   <div id='outerContainer'>
     <div id='box'>
-      <!-- <div value='0'></div>
-      <div value='1'></div>
-      <div value='2'></div>
-      <div value='3'></div>
-      <div value='4'></div>
-      <div value='5'></div>
-      <div value='6'></div>
-      <div value='7'></div>
-      <div value='8'></div>
-      <div value='9'></div>
-      <div value='10'></div>
-      <div value='11'></div>
-      <div value='12'></div>
-      <div value='13'></div>
-      <div value='14'></div>
-      <div value='15'></div>
-      <div value='16'></div>
-      <div value='17'></div>
-      <div value='18'></div>
-      <div value='19'></div>
-      <div value='20'></div>
-      <div value='21'></div>
-      <div value='22'></div>
-      <div value='23'></div>
-      <div value='24'></div>
-      <div value='25'></div>
-      <div value='26'></div>
-      <div value='27'></div>
-      <div value='28'></div>
-      <div value='29'></div>
-      <div value='30'></div>
-      <div value='31'></div>
-      <div value='32'></div>
-      <div value='33'></div>
-      <div value='34'></div>
-      <div value='35'></div>
-      <div value='36'></div>
-      <div value='37'></div>
-      <div value='38'></div>
-      <div value='39'></div>
-      <div value='40'></div>
-      <div value='41'></div>
-      <div value='42'></div>
-      <div value='43'></div>
-      <div value='44'></div>
-      <div value='45'></div>
-      <div value='46'></div>
-      <div value='47'></div>
-      <div value='48'></div>
-      <div value='49'></div>
-      <div value='50'></div>
-      <div value='51'></div>
-      <div value='52'></div>
-      <div value='53'></div>
-      <div value='54'></div>
-      <div value='55'></div>
-      <div value='56'></div>
-      <div value='57'></div>
-      <div value='58'></div>
-      <div value='59'></div>
-      <div value='60'></div>
-      <div value='61'></div>
-      <div value='62'></div>
-      <div value='63'></div>
-      <div value='64'></div>
-      <div value='65'></div>
-      <div value='66'></div>
-      <div value='67'></div>
-      <div value='68'></div>
-      <div value='69'></div>
-      <div value='70'></div>
-      <div value='71'></div>
-      <div value='72'></div>
-      <div value='73'></div>
-      <div value='74'></div>
-      <div value='75'></div>
-      <div value='76'></div>
-      <div value='77'></div>
-      <div value='78'></div>
-      <div value='79'></div>
-      <div value='80'></div>
-      <div value='81'></div>
-      <div value='82'></div>
-      <div value='83'></div>
-      <div value='84'></div>
-      <div value='85'></div>
-      <div value='86'></div>
-      <div value='87'></div>
-      <div value='88'></div>
-      <div value='89'></div>
-      <div value='90'></div>
-      <div value='91'></div>
-      <div value='92'></div>
-      <div value='93'></div>
-      <div value='94'></div>
-      <div value='95'></div>
-      <div value='96'></div>
-      <div value='97'></div>
-      <div value='98'></div>
-      <div value='99'></div> -->
+      
     </div>
     <form id="level-setup">
+      <h3>Instructions:  choose the dimensions of the level you are creating with the x and y input fields and choose the level with the z value field.  Then submit to build the grid.  Then choose the Id modifier number by using the highest previous tileId in the database.  DO NOT CHANGE THE ID MODIFIER NUMBER DURING A LEVEL CREATION OR YOU WILL DESTROY THE ENTIRE UNIVERSE!!!!  Next choose the type of tile you want to place along with the appropriate property values and then click on the grid where you want that tile type to be.  YOU MUST CLICK ALL TILES OR YOU WILL GET UNDEFINED FOR ANY UNCLICKED TILES.  Enjoy!</h3>
       <label for="z-value">Z level value (0-infinity)</label>
       <input type="number" name='z-value' id='z-value' min="0" required=true>
       </br>
@@ -120,11 +22,10 @@
       </br>
       <label for="y-max">y max (1-infinity)</label>
       <input type="number" name='y-max' id='y-max' min="1" required=true>
-    </br>
+      </br>
       <button type="submit">generate</button>
     </form>
-    
-    
+        
     <label class="scrappydoo">
       <label for="type">Type of tile</label>
       <select name='type' id='type'>
@@ -149,14 +50,11 @@
       </select>
       </br>
       </br>
-      
-      </select>
-    </br>
+
+      </br>
       <button id='go'>go</button>
       <p id='output'></p>
-    
-
-    
+        
       <label for="transparent-select">select transparent bool</label>
       <select name='transparent-select' id='transparent-select'>
         <option id="true" value="true">true</option>
@@ -164,10 +62,7 @@
       </select>
       </br>
       </br>
-      </select>
-    
-
-    
+        
       <label for="texture-select">select texture string</label>
       <select name='texture-select' id='texture-select'>
         <option id="void" value="void">void</option>
@@ -188,21 +83,14 @@
         <option id="portalTile" value="portalTile">portalTile</option>
         <option id="lavaTile" value="lavaTile">lavaTile</option>
         <option id="spikePitTile" value="spikePitTile">spikePitTile</option>
-        
       </select>
       </br>
       </br>
-      
-    
-
-    
+          
       <label for="aux-select">make aux value</label>
-      <input name='aux-select' id='aux-select' type="text">
-  
+      <input name='aux-select' id='aux-select' type="text">  
       </br>
       </br>
-      
-
     
       <label for="method-select">make method value</label>
       <input name='method-select' id='method-select' type="text">
@@ -217,9 +105,6 @@
       </br>
     
     </label>
-
-      
-    
     
   </div>
 </body> 
