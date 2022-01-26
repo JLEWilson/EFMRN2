@@ -15,6 +15,7 @@ namespace EFMRN2.Controllers
   {
     private readonly EFMRN2Context _db;
     public static List<MapController> list = new List<MapController>();
+    private Tile _tempTile;
     public MapController(EFMRN2Context db)
     {
         _db = db;
@@ -119,17 +120,31 @@ namespace EFMRN2.Controllers
           If you are on mud and the target tile is mud change the target tiles aux to MOVE BACK 
           and then if the targetTile is MOVE BACK TO X Y Z, do that and change aux back to mud
         */
-    public bool MudTile(Player p, Tile targetTile)
+    public void MudTile(Player p, Tile targetTile)
     {
       Tile targetA = GetPlayerTile(p);
-      if(targetA.Aux == "mud" && targetTile.Aux == "mud")
+      _tempTile = targetA;
+      if(targetTile.Aux == "mud")
       {
-        return true;
-      }
-      else
+        targetTile.Aux = "move back";
+        _db.Entry(targetTile).State = EntityState.Modified;
+        _db.SaveChanges();
+      } 
+      if(targetA.Aux == "move back")
       {
-        return false;
+        SetPlayerPos(p, _tempTile);
+        targetA.Aux = "mud";
+        _db.Entry(targetA).State = EntityState.Modified;
+        _db.SaveChanges();
       }
+    }
+    public void TrapDoor(Player p)
+    {
+      Tile holeTile = GetPlayerTile(p);
+      Door(p);
+      holeTile.Texture = "hole";
+      _db.Entry(holeTile).State = EntityState.Modified;
+      _db.SaveChanges();
     }
   }
 }
