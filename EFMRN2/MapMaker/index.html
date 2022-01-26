@@ -125,7 +125,7 @@
     </form>
     
     
-    <label id="scrappydoo">
+    <label class="scrappydoo">
       <label for="type">Type of tile</label>
       <select name='type' id='type'>
         <option id="void">void</option>
@@ -139,7 +139,7 @@
         <option id="conveyerE">conveyerE</option>
         <option id="conveyerS">conveyerS</option>
         <option id="conveyerW">conveyerW</option>
-        <option id="converyButton">conveyerButton</option>
+        <option id="conveyerButton">conveyerButton</option>
         <option id="hole">hole</option>
         <option id="trapDoor">trapDoor</option>
         <option id="messageTile">messageTile</option>
@@ -154,6 +154,61 @@
     </br>
       <button id='go'>go</button>
       <p id='output'></p>
+    
+
+    
+      <label for="transparent-select">select transparent bool</label>
+      <select name='transparent-select' id='transparent-select'>
+        <option id="true" value="true">true</option>
+        <option id="false" value="false">false</option>
+      </select>
+      </br>
+      </br>
+      </select>
+    
+
+    
+      <label for="texture-select">select texture string</label>
+      <select name='texture-select' id='texture-select'>
+        <option id="floor" value="floor">floor</option>
+        <option id="wall" value="wall">wall</option>
+        <option id="door" value="door">door</option>
+        <option id="table" value="table">table</option>
+        <option id="lockedDoor" value="lockedDoor">lockedDoor</option>
+        <option id="key" value="key">key</option>
+        <option id="conveyorN" value="conveyorN">conveyorN</option>
+        <option id="conveyerE" value="conveyorE">conveyerE</option>
+        <option id="conveyorS" value="conveyorS">conveyorS</option>
+        <option id="conveyerW" value="conveyorW">conveyerW</option>
+        <option id="converyButton" value="conveyorButton">conveyerButton</option>
+        <option id="hole" value="hole">hole</option>
+        <option id="trapDoor" value="trapDoor">trapDoor</option>
+        <option id="messageTile" value="messageTile">messageTile</option>
+        <option id="portalTile" value="portalTile">portalTile</option>
+        <option id="lavaTile" value="lavaTile">lavaTile</option>
+        <option id="spikePitTile" value="spikePitTile">spikePitTile</option>
+        
+      </select>
+      </br>
+      </br>
+      
+    
+
+    
+      <label for="aux-select">make aux value</label>
+      <input name='aux-select' id='aux-select' type="text">
+  
+      </br>
+      </br>
+      
+
+    
+      <label for="method-select">make method value</label>
+      <input name='method-select' id='method-select' type="text">
+  
+      </br>
+      </br>
+    
     </label>
   </div>
 </body> 
