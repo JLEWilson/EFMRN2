@@ -25,6 +25,12 @@ namespace EFMRN2
     {
       services.AddMvc();
 
+      services.AddCors(options =>
+      {
+        options.AddDefaultPolicy(builder=>builder.AllowAnyOrigin());
+      }
+      );
+
       services.AddEntityFrameworkMySql()
         .AddDbContext<EFMRN2Context>(options => options
         .UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
