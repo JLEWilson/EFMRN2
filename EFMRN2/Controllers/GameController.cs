@@ -15,9 +15,11 @@ namespace EFMRN2.Controllers
   public class GameController: ControllerBase
   {
     private readonly EFMRN2Context _db;
+    public MapController dave;
     public GameController(EFMRN2Context db)
     {
       _db = db;
+      dave = new MapController(db);
     }
 
 
@@ -72,20 +74,21 @@ namespace EFMRN2.Controllers
   public async Task<ActionResult<Player>> MovePlayer(int pid, bool n, bool s, bool e, bool w)
   {
     int[] Destination = GetDestination(pid, n, s, e, w);
+
     
     if(CheckTransparency(Destination[0],Destination[1],Destination[2]))
     {
       Player target = await _db.Players.FindAsync(pid);
 
-      // Tile targetTile = _db.Map.FirstOrDefault(t=>t.X==Destination[0]&&t.Y==Destination[1]&&t.Z==Destination[2]);
+      Tile targetTile = _db.Map.FirstOrDefault(t=>t.X==Destination[0]&&t.Y==Destination[1]&&t.Z==Destination[2]);
 
-      // MapController.list[1].TileAction(target, targetTile);
+      dave.TileAction(target, targetTile);
       target.X = Destination[0];
       target.Y = Destination[1];
       target.Z = Destination[2];
       _db.Entry(target).State = EntityState.Modified;
       await _db.SaveChangesAsync();
-      // MapController.list[1].TileAction(target, targetTile);
+      dave.TileAction(target, targetTile);
     }
     return RedirectToAction("GetPlayer", new {id = pid});
   }
