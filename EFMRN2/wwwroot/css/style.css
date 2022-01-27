@@ -1,0 +1,534 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+/* universal styles */
+
+body {
+  background-image:url(../img/background.jpg);
+  background-position: 0 -4em;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  text-align: center;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+label {
+  display: block;
+  color:rgb(48,84,49);
+  font-size: 1.3rem;
+  margin-bottom: .5em;
+  margin-top: 1em;
+}
+
+input {
+  display: block;
+  margin: 0 auto;
+  font-size: 1.3rem;
+}
+
+h1 {
+  margin: 0;
+}
+
+/* Tile-art */
+
+.floor {
+  background-image: url(../img/floor.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.wall {
+  background-image: url(../img/wall.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.void {
+  background-color: black;
+}
+
+.carpet1 {
+  background-image: url(../img/carpet1.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.carpet2 {
+  background-image:url(../img/carpet2.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.carpet3 {
+  background-image:url(../img/carpet3.jpg);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.carpet4 {
+  background-image:url(../img/carpet4.jpg);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.carpet4fancy {
+  background-image:url(../img/carpet4fancy.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.darkfloor {
+  background-image:url(../img/darkfloor.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.door {
+  background-image:url(../img/door.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.grass {
+  background-image:url(../img/grass.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.grass2 {
+  background-image:url(../img/grass2.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.grass3 {
+  background-image:url(../img/grass3.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.hedge {
+  background-image:url(../img/hedge.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.idunno {
+  background-image:url(../img/idunno.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.tilefloor {
+  background-image:url(../img/tilefloor.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.window {
+  background-image:url(../img/window.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.house-bottom-left {
+  background-image:url(../img/house-bottom-left.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.house-bottom-mid {
+  background-image:url(../img/house-bottom-mid.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.house-bottom-right {
+  background-image:url(../img/house-bottom-right.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.house-top-right {
+  background-image:url(../img/house-top-right.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.house-top-mid {
+  background-image:url(../img/house-top-mid.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.house-top-left {
+  background-image:url(../img/house-top-left.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.houseporch {
+  background-image:url(../img/houseporch.jpg);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+
+/* Player Images */
+
+.p1-down {
+  background-image:url(../img/p1-down.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.p1-left {
+  background-image:url(../img/p1-left.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.p1-right {
+  background-image:url(../img/p1-right.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.p1-up {
+  background-image:url(../img/p1-up.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.p2-down {
+  background-image:url(../img/p2-down.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.p2-left {
+  background-image:url(../img/p2-left.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.p2-right {
+  background-image:url(../img/p2-right.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.p2-up {
+  background-image:url(../img/p2-up.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.p3-up {
+  background-image:url(../img/p3-up.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.p3-left {
+  background-image:url(../img/p3-left.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.p3-right {
+  background-image:url(../img/p3-right.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.p3-down {
+  background-image:url(../img/p3-down.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.p4-up {
+  background-image:url(../img/p4-up.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.p4-left {
+  background-image:url(../img/p4-left.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.p4-right {
+  background-image:url(../img/p4-right.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.p4-down {
+  background-image:url(../img/p4-down.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.p5-up {
+  background-image:url(../img/p5-up.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.p5-left {
+  background-image:url(../img/p5-left.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.p5-right {
+  background-image:url(../img/p5-right.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.p5-down {
+  background-image:url(../img/p5-down.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.p6-up {
+  background-image:url(../img/p6-up.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.p6-left {
+  background-image:url(../img/p6-left.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.p6-right {
+  background-image:url(../img/p6-right.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.p6-down {
+  background-image:url(../img/p6-down.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+
+/* game container */
+
+#TileDivs > div {
+  border: .1em solid black;
+}
+
+#GameContainer {
+  margin: 0 auto;
+}
+
+/* individual view styles */
+
+.Account-Head-div {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.Account-Head-div h1 {
+  font-size: 3em;
+  color: rgb(48,84,49);
+  font-weight: normal;
+  margin: 0;
+}
+
+.Account-Head-div h2 {
+  color: rgb(48,84,49);
+  font-weight: normal;
+  font-size: 2em;
+  margin-bottom: 0;
+  text-align: left;
+}
+
+.Account-Head-div h3 {
+  text-align: right;
+  color: rgb(48,84,49);
+  font-weight: normal;
+  font-size: 2em;
+  margin-top: 0;
+  margin-bottom: 2em;
+}
+
+.log-in {
+  display: flow-root;
+  margin-top: 8em;
+  margin-bottom: 5em;
+}
+
+.log-in a {
+  background-color: rgb(207,243,205);
+  padding: .5em 2.5em;
+  border-radius: .5em;
+  font-size: 1.5rem;
+  color: black;
+}
+
+.log-in a:hover {
+  background-color:rgb(144, 168, 143);
+  color: white;
+}
+
+.register a {
+  background-color: rgb(210,172,172);
+  padding: .5em 2em;
+  border-radius: .5em;
+  font-size: 1.5rem;
+  color: black;
+}
+
+.register a:hover {
+  background-color:rgb(173, 133, 133);
+  color: white;
+}
+
+.log-in-input {
+  margin-top: 2em;
+  background-color: rgb(207,243,205);
+  padding: .5em 2.5em;
+  border-radius: .5em;
+  font-size: 1.3rem;
+  color: black;
+  border: none;
+}
+
+.log-in-input:hover {
+  background-color:rgb(144, 168, 143);
+  color: white;
+  cursor: pointer;
+}
+
+.register-input {
+  margin-top: 2em;
+  background-color: rgb(210,172,172);
+  padding: .5em 2em;
+  border-radius: .5em;
+  font-size: 1.3rem;
+  color: black;
+  border: none;
+}
+
+.register-input:hover {
+  background-color:rgb(173, 133, 133);
+  color: white;
+  cursor: pointer;
+}
+
+#dark-screen {
+  background-color: rgba(0,0,0,.5);
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  z-index: 500;
+  display: none;
+}
+
+#text-box {
+  background-color: white;
+  width: 75%;
+  height: 18em;
+  border-radius: 3em;
+  border: 1em rgb(42,65,41) solid;
+  margin: 0 auto;
+  align-self: flex-end;
+  margin-bottom: 1em;
+  text-align: right;
+}
+
+#text-box p {
+  font-size: 1.7rem;
+  width: 90%;
+  display: block;
+  margin: 1em auto;
+  text-align: left;
+  color: rgb(112,112,112);
+}
+
+#next-btn {
+  font-size: 1.7rem;
+  background-color:rgb(190, 233, 192);
+  border: none;
+  border-radius: .5em;
+  padding: .25em 2em;
+  color: rgb(112,112,112);
+  margin-right: 1em; 
+}
+
+.void {
+  background-color: black;
+}
+
+.mud {
+  background-color: brown;
+}
+.pressure {
+  background-color: cyan;
+}
+.ice {
+  background-color:  #17e2fd;
+}
+.lava{
+  background-color: red;
+}

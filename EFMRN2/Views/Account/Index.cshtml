@@ -1,0 +1,19 @@
+<div class="Account-Head-div">
+    <h2>Welcome to</h2>
+    <h1>The Garden Of Your Mind<h1>
+    <h3>Wont You Be My Neighbor?</h3>
+</div>
+@if (User.Identity.IsAuthenticated)
+{
+    <p>Hello @User.Identity.Name!</p>
+    @using (Html.BeginForm("LogOff", "Account"))
+    {
+        <input type="submit" class="btn btn-default" value="Log out" />
+    }
+    @Html.ActionLink("go to game","Game","Home");
+}
+else
+{
+    <p class="btn log-in">@Html.ActionLink("Log in", "Login")</p>
+    <p class="btn register">@Html.ActionLink("Register", "Register")</p>
+}
