@@ -129,6 +129,13 @@ h1 {
   image-rendering: pixelated;
 }
 
+.ice {
+  background-image:url(../img/ice.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
 .idunno {
   background-image:url(../img/idunno.png);
   background-size: contain;
@@ -136,8 +143,50 @@ h1 {
   image-rendering: pixelated;
 }
 
+.lava {
+  background-image:url(../img/lava.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.lockeddoor {
+  background-image:url(../img/lockeddoor.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.mrrogerswizard {
+  background-image:url(../img/mrrogerswizard.jpg);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.mud {
+  background-image:url(../img/mud.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.pressureplate {
+  background-image:url(../img/pressureplate.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
 .tilefloor {
   background-image:url(../img/tilefloor.png);
+  background-size: contain;
+  image-rendering: crisp-edges;
+  image-rendering: pixelated;
+}
+
+.trapdoor {
+  background-image:url(../img/trapdoor.png);
   background-size: contain;
   image-rendering: crisp-edges;
   image-rendering: pixelated;
