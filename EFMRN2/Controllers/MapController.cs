@@ -53,6 +53,9 @@ namespace EFMRN2.Controllers
         SetSpawnPoint(one);
         gary.Death();
         break;
+        case 8:
+        GameController.currentMessage = GetPlayerTile(one).Aux;
+        break;
         default:
         break;
       }
