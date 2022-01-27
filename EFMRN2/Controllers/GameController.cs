@@ -37,7 +37,7 @@ namespace EFMRN2.Controllers
     {
       Player tp = _db.Players.FirstOrDefault(p=>p.PlayerId == pid);
       List<Tile> target = _db.Map.AsQueryable()
-        .Where(t=>(t.X>=(tp.X-range)&&t.X<=(tp.X+range))&&(t.Y>=(tp.Y-range)&&t.Y<=(tp.Y+range))).OrderBy(t=>t.Y).ThenBy(t=>t.X).ToList();
+        .Where(t=>(t.X>=(tp.X-range)&&t.X<=(tp.X+range))&&(t.Y>=(tp.Y-range)&&t.Y<=(tp.Y+range))&&(t.Z==tp.Z)).OrderBy(t=>t.Y).ThenBy(t=>t.X).ToList();
       return target;
     }
     [HttpGet("fPlayer")]
@@ -45,7 +45,7 @@ namespace EFMRN2.Controllers
     {
       Player tp = _db.Players.FirstOrDefault(p=>p.PlayerId == pid);
       List<Player> target = _db.Players.AsQueryable()
-        .Where(t=>t.PlayerId!=pid&&(t.X>=(tp.X-range)&&t.X<=(tp.X+range))&&(t.Y>=(tp.Y-range)&&t.Y<=(tp.Y+range))).OrderBy(t=>t.Y).ThenBy(t=>t.X).ToList();
+        .Where(t=>t.PlayerId!=pid&&(t.X>=(tp.X-range)&&t.X<=(tp.X+range))&&(t.Y>=(tp.Y-range)&&t.Y<=(tp.Y+range))&&(t.Z==tp.Z)).OrderBy(t=>t.Y).ThenBy(t=>t.X).ToList();
       return target;
     }
 

@@ -3,14 +3,16 @@ using System;
 using EFMRN2.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EFMRN2.Migrations
 {
     [DbContext(typeof(EFMRN2Context))]
-    partial class EFMRN2ContextModelSnapshot : ModelSnapshot
+    [Migration("20220127233521_blahblahblah")]
+    partial class blahblahblah
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
