@@ -11,14 +11,14 @@ document.addEventListener('keyup',(e)=>{delete keysDown[e.keyCode];}, false);
 
 let dim = 7;
 canvas.parentNode.style.position = "fixed";
-canvas.parentNode.style.left = "25%";
+canvas.parentNode.style.left = "30.5vw";
 canvas.parentNode.style.height = window.innerHeight*0.8+"px";
 canvas.parentNode.style.width = canvas.parentNode.style.height;
 canvas.height = window.innerHeight*0.8;
 canvas.width = canvas.height;
 canvas.style.border = "solid black 1px";
 canvas.style.position = "fixed";
-canvas.style.left = "25%";
+canvas.style.left = "30.5vw";
 TilesDavis.style.width = canvas.height+"px";
 TilesDavis.style.height = TilesDavis.style.width;
 TilesDavis.style.display = "grid";

@@ -24,6 +24,11 @@ namespace EFMRN2
     public void ConfigureServices(IServiceCollection services)
     {
       services.AddMvc();
+        services.AddCors(options => 
+                {
+                  options.AddDefaultPolicy(builder=>builder.AllowAnyOrigin());
+                }
+                );
 
       services.AddEntityFrameworkMySql()
         .AddDbContext<EFMRN2Context>(options => options
@@ -54,7 +59,7 @@ namespace EFMRN2
       app.UseAuthentication(); 
 
       app.UseRouting();
-
+      app.UseCors();
       
       app.UseAuthorization();
 

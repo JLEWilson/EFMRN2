@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
+/* universal styles */
+
 body {
   background-image:url(../img/background.jpg);
   background-position: 0 -4em;
@@ -30,6 +32,168 @@ h1 {
   margin: 0;
 }
 
+/* Tile-art */
+
+.floor {
+  background-image: url(../img/floor.png);
+  background-size: contain;
+}
+
+.wall {
+  background-image: url(../img/wall.png);
+  background-size: contain;
+}
+
+.void {
+  background-color: black;
+}
+
+.carpet1 {
+  background-image: url(../img/carpet1.png);
+  background-size: contain;
+}
+
+.carpet2 {
+  background-image:url(../img/carpet2.png);
+  background-size: contain;
+}
+
+.carpet3 {
+  background-image:url(../img/carpet3.jpg);
+  background-size: contain;
+}
+
+.carpet4 {
+  background-image:url(../img/carpet4.jpg);
+  background-size: contain;
+}
+
+.carpet4fancy {
+  background-image:url(../img/carpet4fancy.png);
+  background-size: contain;
+}
+
+.darkfloor {
+  background-image:url(../img/darkfloor.png);
+  background-size: contain;
+}
+
+.door {
+  background-image:url(../img/door.png);
+  background-size: contain;
+}
+
+.grass {
+  background-image:url(../img/grass.png);
+  background-size: contain;
+}
+
+.grass2 {
+  background-image:url(../img/grass2.png);
+  background-size: contain;
+}
+
+.hedge {
+  background-image:url(../img/hedge.png);
+  background-size: contain;
+}
+
+.idunno {
+  background-image:url(../img/idunno.png);
+  background-size: contain;
+}
+
+.tilefloor {
+  background-image:url(../img/tilefloor.png);
+  background-size: contain;
+}
+
+.window {
+  background-image:url(../img/window.png);
+  background-size: contain;
+}
+
+.house-bottom-left {
+  background-image:url(../img/house-bottom-left.png);
+  background-size: contain;
+}
+
+.house-bottom-mid {
+  background-image:url(../img/house-bottom-mid.png);
+  background-size: contain;
+}
+
+.house-bottom-right {
+  background-image:url(../img/house-bottom-right.png);
+  background-size: contain;
+}
+
+.house-top-right {
+  background-image:url(../img/house-top-right.png);
+  background-size: contain;
+}
+
+.house-top-mid {
+  background-image:url(../img/house-top-mid.png);
+  background-size: contain;
+}
+
+.house-top-left {
+  background-image:url(../img/house-top-left.png);
+  background-size: contain;
+}
+
+.houseporch {
+  background-image:url(../img/houseporch.jpg);
+  background-size: contain;
+}
+
+
+/* Player Images */
+
+.p1-down {
+  background-image:url(../img/p1-down.png);
+  background-size: contain;
+}
+
+.p1-left {
+  background-image:url(../img/p1-left.png);
+  background-size: contain;
+}
+
+.p1-right {
+  background-image:url(../img/p1-right.png);
+  background-size: contain;
+}
+
+.p1-up {
+  background-image:url(../img/p1-up.png);
+  background-size: contain;
+}
+
+.p2-down {
+  background-image:url(../img/p2-down.png);
+  background-size: contain;
+}
+
+.p2-left {
+  background-image:url(../img/p2-left.png);
+  background-size: contain;
+}
+
+.p2-right {
+  background-image:url(../img/p2-right.png);
+  background-size: contain;
+}
+
+.p2-up {
+  background-image:url(../img/p2-up.png);
+  background-size: contain;
+}
+
+
+/* game container */
+
 #TileDivs > div {
   border: .25em solid black;
 }
@@ -37,6 +201,8 @@ h1 {
 #GameContainer {
   margin: 0 auto;
 }
+
+/* individual view styles */
 
 .Account-Head-div {
   width: fit-content;
@@ -65,18 +231,6 @@ h1 {
   font-size: 2em;
   margin-top: 0;
   margin-bottom: 2em;
-}
-
-.floor {
-  background-color: rgb(205, 233, 198);
-}
-
-.wall {
-  background-color: rgb(19, 36, 19);
-}
-
-.void {
-  background-color: black;
 }
 
 .log-in {
@@ -149,7 +303,7 @@ h1 {
   height: 100vh;
   position: absolute;
   z-index: 500;
-  display: flex;
+  display: none;
 }
 
 #text-box {
