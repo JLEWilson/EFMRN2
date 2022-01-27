@@ -11,11 +11,8 @@ namespace EFMRN2.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController()
         {
-            _logger = logger;
         }
 
         public IActionResult Index()
@@ -29,6 +26,11 @@ namespace EFMRN2.Controllers
         }
         public IActionResult Game()
         {
+            return View();
+        }
+        public IActionResult Death()
+        {
+            Console.WriteLine("Def dead");
             return View();
         }
 

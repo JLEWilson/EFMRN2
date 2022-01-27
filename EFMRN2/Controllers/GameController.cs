@@ -80,12 +80,15 @@ namespace EFMRN2.Controllers
     {
       if(CheckTransparency(Destination[0],Destination[1],Destination[2]))
       {
+        bool leaving = true;
+        dave.TileAction(target, leaving);
+        leaving = false;
         target.X = Destination[0];
         target.Y = Destination[1];
         target.Z = Destination[2];
         _db.Entry(target).State = EntityState.Modified;
         await _db.SaveChangesAsync();
-        dave.TileAction(target);
+        dave.TileAction(target, leaving);
       }
     }
     return RedirectToAction("GetPlayer", new {id = pid});

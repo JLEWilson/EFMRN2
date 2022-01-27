@@ -3,14 +3,16 @@ using System;
 using EFMRN2.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EFMRN2.Migrations
 {
     [DbContext(typeof(EFMRN2Context))]
-    partial class EFMRN2ContextModelSnapshot : ModelSnapshot
+    [Migration("20220127043620_Ice")]
+    partial class Ice
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -953,7 +955,7 @@ namespace EFMRN2.Migrations
                         new
                         {
                             TileId = 264,
-                            Aux = "spawn",
+                            Aux = "0",
                             Method = 0,
                             Texture = "floor",
                             Transparent = true,
@@ -964,7 +966,7 @@ namespace EFMRN2.Migrations
                         new
                         {
                             TileId = 284,
-                            Aux = "spawn",
+                            Aux = "0",
                             Method = 0,
                             Texture = "floor",
                             Transparent = true,
@@ -1173,7 +1175,7 @@ namespace EFMRN2.Migrations
                         new
                         {
                             TileId = 265,
-                            Aux = "spawn",
+                            Aux = "0",
                             Method = 0,
                             Texture = "floor",
                             Transparent = true,
@@ -1184,7 +1186,7 @@ namespace EFMRN2.Migrations
                         new
                         {
                             TileId = 285,
-                            Aux = "spawn",
+                            Aux = "0",
                             Method = 0,
                             Texture = "floor",
                             Transparent = true,
@@ -1393,7 +1395,7 @@ namespace EFMRN2.Migrations
                         new
                         {
                             TileId = 266,
-                            Aux = "spawn",
+                            Aux = "0",
                             Method = 0,
                             Texture = "floor",
                             Transparent = true,
@@ -1404,7 +1406,7 @@ namespace EFMRN2.Migrations
                         new
                         {
                             TileId = 286,
-                            Aux = "spawn",
+                            Aux = "0",
                             Method = 0,
                             Texture = "floor",
                             Transparent = true,
@@ -3737,7 +3739,7 @@ namespace EFMRN2.Migrations
                         {
                             TileId = 137,
                             Aux = "0",
-                            Method = 5,
+                            Method = 0,
                             Texture = "ice",
                             Transparent = true,
                             X = 16,
@@ -3748,7 +3750,7 @@ namespace EFMRN2.Migrations
                         {
                             TileId = 157,
                             Aux = "0",
-                            Method = 5,
+                            Method = 0,
                             Texture = "ice",
                             Transparent = true,
                             X = 16,
@@ -3759,7 +3761,7 @@ namespace EFMRN2.Migrations
                         {
                             TileId = 177,
                             Aux = "0",
-                            Method = 5,
+                            Method = 0,
                             Texture = "ice",
                             Transparent = true,
                             X = 16,
@@ -3770,7 +3772,7 @@ namespace EFMRN2.Migrations
                         {
                             TileId = 197,
                             Aux = "0",
-                            Method = 5,
+                            Method = 0,
                             Texture = "ice",
                             Transparent = true,
                             X = 16,
@@ -3781,7 +3783,7 @@ namespace EFMRN2.Migrations
                         {
                             TileId = 217,
                             Aux = "0",
-                            Method = 5,
+                            Method = 0,
                             Texture = "ice",
                             Transparent = true,
                             X = 16,
@@ -3792,7 +3794,7 @@ namespace EFMRN2.Migrations
                         {
                             TileId = 237,
                             Aux = "0",
-                            Method = 5,
+                            Method = 0,
                             Texture = "ice",
                             Transparent = true,
                             X = 16,
@@ -3803,7 +3805,7 @@ namespace EFMRN2.Migrations
                         {
                             TileId = 257,
                             Aux = "0",
-                            Method = 5,
+                            Method = 0,
                             Texture = "ice",
                             Transparent = true,
                             X = 16,
@@ -3814,7 +3816,7 @@ namespace EFMRN2.Migrations
                         {
                             TileId = 277,
                             Aux = "0",
-                            Method = 5,
+                            Method = 0,
                             Texture = "ice",
                             Transparent = true,
                             X = 16,
@@ -3847,8 +3849,8 @@ namespace EFMRN2.Migrations
                         {
                             TileId = 337,
                             Aux = "0",
-                            Method = 7,
-                            Texture = "lava",
+                            Method = 0,
+                            Texture = "floor",
                             Transparent = true,
                             X = 16,
                             Y = 16,
