@@ -54,7 +54,7 @@ async function go()
   var back = await getMove(apiString);
   drawLocalPlayers(PlayerId, back);
   updateMap2();
-  getMessage();
+  // getMessage();
   // if(m!="NoMessages")
   // {
   //   let a = m.split("/");

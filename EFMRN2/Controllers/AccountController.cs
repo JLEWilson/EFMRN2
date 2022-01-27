@@ -42,7 +42,7 @@ namespace EFMRN2.Controllers
         // newPlayer.Transparency = false;
         // newPlayer.Bearing = 2;
         // newPlayer.Color = "red";
-        _db.Players.Add(new Player{UserId = user.Id, X = 4, Y = 4, Z = 0, Transparency = false, Bearing = 2, Color = "red"});
+        _db.Players.Add(new Player{UserId = user.Id, X = 16, Y = 31, Z = 0, Transparency = false, Bearing = 2, Color = "red"});
         _db.SaveChanges();
         return RedirectToAction("Index");
       }
