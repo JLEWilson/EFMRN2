@@ -7,6 +7,19 @@
     </div>
 </div>
 
+<ul id="nav-bar">
+  <li>
+    <h1>Mr. Roboger 2<h1>
+    <h2>The Garden Of Your Mind</h2>
+  </li>
+  <li id="item-2">
+    @using (Html.BeginForm("LogOff", "Account"))
+    {
+        <input type="submit" class="btn logout-btn" value="Log out" />
+    }
+  </li>
+</ul>
+
 <div id="GameContainer">
   <div id="TileDivs">
     <div id="1"></div>

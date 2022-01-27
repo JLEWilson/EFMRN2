@@ -2,7 +2,12 @@
     ViewData["Title"] = "Home Page";
 }
 
-<h1>Hello</h1>
+<div class="Account-Head-div">
+    <h2>Welcome to</h2>
+    <h1>The Garden Of Your Mind<h1>
+    <h3>Wont You Be My Neighbor?</h3>
+</div>
 
+<img id="hero-img" src="~/img/hero-image.jpg">
 
-@Html.ActionLink("Log In","Index", "Account");
+<p id="home-log-in" class="btn log-in">@Html.ActionLink("Log In","Index", "Account")</p>
