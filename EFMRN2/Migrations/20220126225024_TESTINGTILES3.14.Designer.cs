@@ -3,14 +3,16 @@ using System;
 using EFMRN2.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EFMRN2.Migrations
 {
     [DbContext(typeof(EFMRN2Context))]
-    partial class EFMRN2ContextModelSnapshot : ModelSnapshot
+    [Migration("20220126225024_TESTINGTILES3.14")]
+    partial class TESTINGTILES314
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -2207,9 +2209,9 @@ namespace EFMRN2.Migrations
                         new
                         {
                             TileId = 150,
-                            Aux = "110",
-                            Method = 3,
-                            Texture = "pressure",
+                            Aux = "0",
+                            Method = 0,
+                            Texture = "floor",
                             Transparent = true,
                             X = 9,
                             Y = 7,
@@ -2647,9 +2649,9 @@ namespace EFMRN2.Migrations
                         new
                         {
                             TileId = 152,
-                            Aux = "mud",
-                            Method = 2,
-                            Texture = "mud",
+                            Aux = "0",
+                            Method = 0,
+                            Texture = "floor",
                             Transparent = true,
                             X = 11,
                             Y = 7,
@@ -2658,9 +2660,9 @@ namespace EFMRN2.Migrations
                         new
                         {
                             TileId = 172,
-                            Aux = "mud",
-                            Method = 2,
-                            Texture = "mud",
+                            Aux = "0",
+                            Method = 0,
+                            Texture = "floor",
                             Transparent = true,
                             X = 11,
                             Y = 8,

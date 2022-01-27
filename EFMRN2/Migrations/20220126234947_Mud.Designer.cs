@@ -3,14 +3,16 @@ using System;
 using EFMRN2.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EFMRN2.Migrations
 {
     [DbContext(typeof(EFMRN2Context))]
-    partial class EFMRN2ContextModelSnapshot : ModelSnapshot
+    [Migration("20220126234947_Mud")]
+    partial class Mud
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -2648,7 +2650,7 @@ namespace EFMRN2.Migrations
                         {
                             TileId = 152,
                             Aux = "mud",
-                            Method = 2,
+                            Method = 0,
                             Texture = "mud",
                             Transparent = true,
                             X = 11,
@@ -2659,7 +2661,7 @@ namespace EFMRN2.Migrations
                         {
                             TileId = 172,
                             Aux = "mud",
-                            Method = 2,
+                            Method = 0,
                             Texture = "mud",
                             Transparent = true,
                             X = 11,

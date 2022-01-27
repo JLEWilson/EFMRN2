@@ -15,15 +15,17 @@ namespace EFMRN2.Controllers
   {
     private readonly EFMRN2Context _db;
     public static List<MapController> list = new List<MapController>();
-    private Tile _tempTile;
+    // private Tile _tempTile;
+    // private Tile pressurePlateDownTile;
     public MapController(EFMRN2Context db)
     {
         _db = db;
         MapController.list.Add(this);
     }
     //Still have to call this when player moves
-    public void TileAction(Player one, Tile targetTile)
+    public void TileAction(Player one)
     {
+      
       Tile target = GetPlayerTile(one);
       switch(target.Method)
       {
@@ -32,7 +34,13 @@ namespace EFMRN2.Controllers
         Door(one);
         break;
         case 2:
-        MudTile(one, targetTile);
+        //MudTile(one);
+        break;
+        case 3:
+        PressurePlateToggle(one);
+        break;
+        case 4:
+        PressurePlateKey(one);
         break;
         default:
         break;
@@ -61,25 +69,26 @@ namespace EFMRN2.Controllers
     }
     public void OpenTile(Tile t)
     {
+      Console.WriteLine("OpenTile");
       t.Transparent = true;
-      //replace with texture name of open door
-      t.Texture = "walkable";
+      t.Texture = "floor";
       t.Aux = "open";
       _db.Entry(t).State = EntityState.Modified;
       _db.SaveChanges();
     }
     public void CloseTile(Tile t)
     {
-      t.Transparent = true;
-      //replace with texture name of closed door
-      t.Texture = "walkable";
-      t.Aux = "closed";
+      Console.WriteLine("CloseTile");
+      t.Transparent = false;
+      t.Texture = "wall";
+      t.Aux = "0";
       _db.Entry(t).State = EntityState.Modified;
       _db.SaveChanges();
     }
     //teleport to plain tile in front of door
     public void Door(Player p)
     {
+      Console.WriteLine("Door");
       Tile targetA = GetPlayerTile(p);
       int i = Int32.Parse(targetA.Aux);
       Tile target = GetTileById(i);
@@ -90,19 +99,65 @@ namespace EFMRN2.Controllers
     //
     public void PressurePlateKey(Player p)
     {
+      Console.WriteLine("PressurePlateKey");
       Tile targetA = GetPlayerTile(p);
       int i = Int32.Parse(targetA.Aux);
       Tile target = GetTileById(i);
-      if(target.Aux == "closed")
+      Console.WriteLine(target.Aux);
+      if(target.Aux == "0")
       {
         OpenTile(target);
       }
-      if(target.Aux == "open")
+    }
+    // V Currently functions like key, Change to toggle
+    /*
+    might need to adjust player move to calling tile action twice
+    */
+    public void PressurePlateToggle(Player p)
+    {
+      Console.WriteLine("PressurePlateToggle");
+      Tile targetA = GetPlayerTile(p);
+      int i = Int32.Parse(targetA.Aux);
+      Tile target = GetTileById(i);
+      Console.WriteLine(target.Aux);
+      if(target.Aux == "0")
+      {
+        OpenTile(target);
+      }
+      else if(target.Aux == "open")
       {
         CloseTile(target);
       }
     }
-        /*
+
+    public void TrapDoor(Player p)
+    {
+      Tile holeTile = GetPlayerTile(p);
+      Door(p);
+      holeTile.Texture = "void";
+      _db.Entry(holeTile).State = EntityState.Modified;
+      _db.SaveChanges();
+    }
+    /*
+        What am I even supposed to be doing right now I dont remember
+        GameController changed from moving player every call regardless to only moving if the player is moving, breaking the adjustments we had to make in this file
+        I no longer need to save player location when stepping on the pressure plate. I should be able to run it like I did before, which was change the auillery of a door to open when it is pressed, and to closed when you leave the tile
+    */
+        
+    // public void MudTile(Player p)
+    // {
+    //   Tile targetA = GetPlayerTile(p);
+    //   _tempTile = targetA;
+    //   // if(targetTile.Aux == "mud")
+    //   // {
+    //   //   SetPlayerPos(p, _tempTile);
+    //   //   _db.Entry(targetA).State = EntityState.Modified;
+    //   //   _db.SaveChanges();
+    //   // }
+    // }
+  }
+}
+/*
          tile A = tile standing on
          tile B = tile to move to
           
@@ -114,51 +169,62 @@ namespace EFMRN2.Controllers
           and the move to tile B
 
           then after move do action on tile you are now on
-        */
-
-        /*
-          If you are on mud and the target tile is mud change the target tiles aux to MOVE BACK 
-          and then if the targetTile is MOVE BACK TO X Y Z, do that and change aux back to mud
-        */
-    public void MudTile(Player p, Tile targetTile)
-    {
-      Tile targetA = GetPlayerTile(p);
-      _tempTile = targetA;
-      if(targetTile.Aux == "mud")
-      {
-        targetTile.Aux = "move back";
-        _db.Entry(targetTile).State = EntityState.Modified;
-        _db.SaveChanges();
-      } 
-      if(targetA.Aux == "move back")
-      {
-        SetPlayerPos(p, _tempTile);
-        targetA.Aux = "mud";
-        _db.Entry(targetA).State = EntityState.Modified;
-        _db.SaveChanges();
-      }
-    }
-    public void TrapDoor(Player p)
-    {
-      Tile holeTile = GetPlayerTile(p);
-      Door(p);
-      holeTile.Texture = "hole";
-      _db.Entry(holeTile).State = EntityState.Modified;
-      _db.SaveChanges();
-    }
+        
+public void Mudslide(Player p)
+{
+  Tile targetA = GetPlayerTile(p);
+  if (p.Bearing = N)
+  {
+    targetA.Aux = ConveyorS
+  }
+  else if (p.Bearing = E)
+  {
+    targetA.Aux = ConveyorW
+  }
+  else if (p.Bearing = W)
+  {
+    targetA.Aux = ConveyorE
+  }
+  else if (p.Bearing = S)
+  {
+    targetA.Aux = ConveyorN
   }
 }
+
+*/
+
+
+
+    
+    // public Tile GetForwardTile(Player p)
+    // {
+    //   //0=n, 2=s, 2=e, 3=w
+    //   Player tempPlayer = p;
+    //    if(p.Bearing == 0)
+    //   {
+    //     tempPlayer.Y -= 1;
+    //   }
+    //   if(p.Bearing == 1)
+    //   {
+    //     tempPlayer.Y += 1;
+    //   }
+    //   if()
+    //   {
+    //     output[0]+=1;
+    //   }
+    //   if()
+    //   {
+    //     output[0]-=1;
+    //   }
+      
+      
+    //   return output;
+    // }
 /*
   Tiles: 
   
-  Door Tile
-  AUX = Position to move to, in front of other door
-
-  PressurePlate
-  Aux = targetBlocked tile
-  Aux of target blocked tile = closed
-  also need to figure out exact texture names for open and closed
-
-  Mud tile
-  Aux = mud
+  Mud
+  Conveyer
+  Ice
+  ANYDAMAGING TILE will just be setplayerpos, but to start location
 */
