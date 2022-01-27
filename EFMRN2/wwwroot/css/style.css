@@ -515,3 +515,20 @@ h1 {
   color: rgb(112,112,112);
   margin-right: 1em; 
 }
+
+.void {
+  background-color: black;
+}
+
+.mud {
+  background-color: brown;
+}
+.pressure {
+  background-color: cyan;
+}
+.ice {
+  background-color:  #17e2fd;
+}
+.lava{
+  background-color: red;
+}

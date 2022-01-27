@@ -24,37 +24,37 @@ namespace EFMRN2.Controllers
     }
 
 
-  [HttpGet]
-  public ActionResult<Tile> Get(int x, int y, int z)
-  {
-    Tile target = _db.Map.AsQueryable()
-      .Where(t=>t.X == x && t.Y == y && t.Z == z)
-      .FirstOrDefault();
-    return target;
-  }
-  [HttpGet("fMap")]
-  public ActionResult<IEnumerable<Tile>> GetMap(int pid, int range)
-  {
-    Player tp = _db.Players.FirstOrDefault(p=>p.PlayerId == pid);
-    List<Tile> target = _db.Map.AsQueryable()
-      .Where(t=>(t.X>=(tp.X-range)&&t.X<=(tp.X+range))&&(t.Y>=(tp.Y-range)&&t.Y<=(tp.Y+range))).OrderBy(t=>t.Y).ThenBy(t=>t.X).ToList();
-    return target;
-  }
-  [HttpGet("fPlayer")]
-  public ActionResult<IEnumerable<Player>> GetLocalPlayer(int pid, int range)
-  {
-    Player tp = _db.Players.FirstOrDefault(p=>p.PlayerId == pid);
-    List<Player> target = _db.Players.AsQueryable()
-      .Where(t=>t.PlayerId!=pid&&(t.X>=(tp.X-range)&&t.X<=(tp.X+range))&&(t.Y>=(tp.Y-range)&&t.Y<=(tp.Y+range))).OrderBy(t=>t.Y).ThenBy(t=>t.X).ToList();
-    return target;
-  }
+    [HttpGet]
+    public ActionResult<Tile> Get(int x, int y, int z)
+    {
+      Tile target = _db.Map.AsQueryable()
+        .Where(t=>t.X == x && t.Y == y && t.Z == z)
+        .FirstOrDefault();
+      return target;
+    }
+    [HttpGet("fMap")]
+    public ActionResult<IEnumerable<Tile>> GetMap(int pid, int range)
+    {
+      Player tp = _db.Players.FirstOrDefault(p=>p.PlayerId == pid);
+      List<Tile> target = _db.Map.AsQueryable()
+        .Where(t=>(t.X>=(tp.X-range)&&t.X<=(tp.X+range))&&(t.Y>=(tp.Y-range)&&t.Y<=(tp.Y+range))).OrderBy(t=>t.Y).ThenBy(t=>t.X).ToList();
+      return target;
+    }
+    [HttpGet("fPlayer")]
+    public ActionResult<IEnumerable<Player>> GetLocalPlayer(int pid, int range)
+    {
+      Player tp = _db.Players.FirstOrDefault(p=>p.PlayerId == pid);
+      List<Player> target = _db.Players.AsQueryable()
+        .Where(t=>t.PlayerId!=pid&&(t.X>=(tp.X-range)&&t.X<=(tp.X+range))&&(t.Y>=(tp.Y-range)&&t.Y<=(tp.Y+range))).OrderBy(t=>t.Y).ThenBy(t=>t.X).ToList();
+      return target;
+    }
 
-  [HttpGet("AllPlayers")]
-  public async Task<ActionResult<IEnumerable<Player>>> GetAllPlayer()
-  {
-    
-    return await _db.Players.ToListAsync();
-  }
+    [HttpGet("AllPlayers")]
+    public async Task<ActionResult<IEnumerable<Player>>> GetAllPlayer()
+    {
+      
+      return await _db.Players.ToListAsync();
+    }
 
 
   [HttpGet("player")]
@@ -92,19 +92,24 @@ namespace EFMRN2.Controllers
     {
       Player target = await _db.Players.FindAsync(pid);
 
-      Tile targetTile = _db.Map.FirstOrDefault(t=>t.X==Destination[0]&&t.Y==Destination[1]&&t.Z==Destination[2]);
-
-      dave.TileAction(target, targetTile);
-      target.X = Destination[0];
-      target.Y = Destination[1];
-      target.Z = Destination[2];
-      _db.Entry(target).State = EntityState.Modified;
-      await _db.SaveChangesAsync();
-      dave.TileAction(target, targetTile);
+      if (Destination[0]!=target.X||Destination[1]!=target.Y||Destination[2]!=target.Z)
+      {
+        if(CheckTransparency(Destination[0],Destination[1],Destination[2]))
+        {
+          bool leaving = true;
+          dave.TileAction(target, leaving);
+          leaving = false;
+          target.X = Destination[0];
+          target.Y = Destination[1];
+          target.Z = Destination[2];
+          _db.Entry(target).State = EntityState.Modified;
+          await _db.SaveChangesAsync();
+          dave.TileAction(target, leaving);
+        }
+      }
     }
     return RedirectToAction("GetPlayer", new {id = pid});
   }
-
   
     public bool CheckTransparency(int x, int y, int z)
     {
@@ -164,4 +169,4 @@ namespace EFMRN2.Controllers
     return output;
     }
   }
-}
+  }
