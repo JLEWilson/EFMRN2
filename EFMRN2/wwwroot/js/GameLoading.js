@@ -3,11 +3,18 @@ let brush = canvas.getContext("2d");
 let TilesDavis = document.getElementById("TileDivs");
 let user = document.getElementById("user");
 
+let dimg = document.getElementById("gdown");
+let uimg = document.getElementById("gup");
+let limg = document.getElementById("gleft");
+let rimg = document.getElementById("gright");
+
+let activeTexture = dimg;
+
+
 
 var keysDown = {};
 document.addEventListener("keydown",(e)=>{keysDown[e.keyCode] = true;}, false);
 document.addEventListener('keyup',(e)=>{delete keysDown[e.keyCode];}, false);
-
 
 let dim = 7;
 canvas.parentNode.style.position = "fixed";
@@ -51,6 +58,22 @@ async function go()
 
 function takeInput(){
   let keyStates=[(38 in keysDown ),(40 in keysDown),(39 in keysDown),(37 in keysDown)];
+  if(keyStates[0])
+  {
+    activeTexture = uimg;
+  }
+  if(keyStates[1])
+  {
+    activeTexture = dimg;
+  }
+  if(keyStates[2])
+  {
+    activeTexture = rimg;
+  }
+  if(keyStates[3])
+  {
+    activeTexture = limg;
+  }
   return keyStates;
 }
 
@@ -94,15 +117,34 @@ function DrawSelf(input)
   // brush.clearRect(0,0,canvas.width, canvas.height);
   brush.fillStyle = input;
   brush.beginPath();
-  brush.arc(3.5*q,3.5*q,q/2,0,Math.PI*2,false);
+  // brush.arc(3.5*q,3.5*q,q/2,0,Math.PI*2,false);
+  brush.drawImage(activeTexture, 3*q,3*q,q,q);
   brush.fill();
 }
 
 async function DrawPlayer(x,y,input)
 {
   brush.fillStyle = input.color;
+  let otex = dimg;
+  if(input.bearing === 0)
+  {
+    otex = dimg;
+  }
+  if(input.bearing === 1)
+  {
+    otex = uimg;
+  }
+  if(input.bearing === 2)
+  {
+    otex = rimg;
+  }
+  if(input.bearing === 3)
+  {
+    otex = limg;
+  }
   brush.beginPath();
-  brush.arc((x+0.5)*q,(y+0.5)*q,q/2,0,Math.PI*2,false);
+  // brush.arc((x+0.5)*q,(y+0.5)*q,q/2,0,Math.PI*2,false);
+  brush.drawImage(otex,x*q,y*q,q,q);
   brush.fill();
 }
 
