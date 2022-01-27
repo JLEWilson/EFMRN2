@@ -14,6 +14,7 @@ namespace EFMRN2.Controllers
   [ApiController]
   public class GameController: ControllerBase
   {
+    public static string currentMessage = "NoMessages";
     private readonly EFMRN2Context _db;
     public MapController dave;
     public GameController(EFMRN2Context db)
@@ -69,6 +70,17 @@ namespace EFMRN2.Controllers
     return target;
   }
 
+  [HttpGet("checkMes")]
+  public ActionResult<string> getMessages()
+  {
+    return currentMessage;
+  }
+  [HttpGet("setMes")]
+  
+    public void setMessages(string message)
+  {
+    GameController.currentMessage = message; 
+  }
 
   [HttpGet("move")]
   public async Task<ActionResult<Player>> MovePlayer(int pid, bool n, bool s, bool e, bool w)
