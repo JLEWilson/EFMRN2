@@ -186,3 +186,28 @@ namespace EFMRN2.Controllers
     
   }
 }
+
+/*
+  Door:
+  Method =1
+  Aux = Id of destination tile, 
+  Mud: 
+  Method = 2
+  Aux = 0, 
+  PressurePlateToggle: 
+  Method = 3
+  Aux = Id of target wall tile, 
+  PressurePlateKey:
+  Method = 4
+  Aux = Id of target wall tile, 
+  Ice: 
+  Method = 5
+  Aux = 0, 
+  TrapDoor: 
+  Method = 6
+  Aux = Id of destination tile, 
+  Lava: 
+  Method = 7 
+  Aux = 0
+  Set any tile for respawn's Aux = to "spawn"
+*/

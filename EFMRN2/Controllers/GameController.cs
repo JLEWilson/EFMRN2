@@ -23,76 +23,76 @@ namespace EFMRN2.Controllers
     }
 
 
-  [HttpGet]
-  public ActionResult<Tile> Get(int x, int y, int z)
-  {
-    Tile target = _db.Map.AsQueryable()
-      .Where(t=>t.X == x && t.Y == y && t.Z == z)
-      .FirstOrDefault();
-    return target;
-  }
-  [HttpGet("fMap")]
-  public ActionResult<IEnumerable<Tile>> GetMap(int pid, int range)
-  {
-    Player tp = _db.Players.FirstOrDefault(p=>p.PlayerId == pid);
-    List<Tile> target = _db.Map.AsQueryable()
-      .Where(t=>(t.X>=(tp.X-range)&&t.X<=(tp.X+range))&&(t.Y>=(tp.Y-range)&&t.Y<=(tp.Y+range))).OrderBy(t=>t.Y).ThenBy(t=>t.X).ToList();
-    return target;
-  }
-  [HttpGet("fPlayer")]
-  public ActionResult<IEnumerable<Player>> GetLocalPlayer(int pid, int range)
-  {
-    Player tp = _db.Players.FirstOrDefault(p=>p.PlayerId == pid);
-    List<Player> target = _db.Players.AsQueryable()
-      .Where(t=>t.PlayerId!=pid&&(t.X>=(tp.X-range)&&t.X<=(tp.X+range))&&(t.Y>=(tp.Y-range)&&t.Y<=(tp.Y+range))).OrderBy(t=>t.Y).ThenBy(t=>t.X).ToList();
-    return target;
-  }
-
-  [HttpGet("AllPlayers")]
-  public async Task<ActionResult<IEnumerable<Player>>> GetAllPlayer()
-  {
-    
-    return await _db.Players.ToListAsync();
-  }
-
-
-  [HttpGet("player")]
-  public async Task<ActionResult<Player>> GetPlayer(int id)
-  {
-    Player target = await _db.Players.FindAsync(id);
-    return target;
-  }
-  [HttpGet("user")]
-  public ActionResult<Player> GetPlayerById(string pid)
-  {
-    Player target = _db.Players.FirstOrDefault(p=>p.UserId==pid);
-    return target;
-  }
-
-
-  [HttpGet("move")]
-  public async Task<ActionResult<Player>> MovePlayer(int pid, bool n, bool s, bool e, bool w)
-  {
-    int[] Destination = GetDestination(pid, n, s, e, w);
-    Player target = await _db.Players.FindAsync(pid);
-
-    if (Destination[0]!=target.X||Destination[1]!=target.Y||Destination[2]!=target.Z)
+    [HttpGet]
+    public ActionResult<Tile> Get(int x, int y, int z)
     {
-      if(CheckTransparency(Destination[0],Destination[1],Destination[2]))
-      {
-        bool leaving = true;
-        dave.TileAction(target, leaving);
-        leaving = false;
-        target.X = Destination[0];
-        target.Y = Destination[1];
-        target.Z = Destination[2];
-        _db.Entry(target).State = EntityState.Modified;
-        await _db.SaveChangesAsync();
-        dave.TileAction(target, leaving);
-      }
+      Tile target = _db.Map.AsQueryable()
+        .Where(t=>t.X == x && t.Y == y && t.Z == z)
+        .FirstOrDefault();
+      return target;
     }
-    return RedirectToAction("GetPlayer", new {id = pid});
-  }
+    [HttpGet("fMap")]
+    public ActionResult<IEnumerable<Tile>> GetMap(int pid, int range)
+    {
+      Player tp = _db.Players.FirstOrDefault(p=>p.PlayerId == pid);
+      List<Tile> target = _db.Map.AsQueryable()
+        .Where(t=>(t.X>=(tp.X-range)&&t.X<=(tp.X+range))&&(t.Y>=(tp.Y-range)&&t.Y<=(tp.Y+range))).OrderBy(t=>t.Y).ThenBy(t=>t.X).ToList();
+      return target;
+    }
+    [HttpGet("fPlayer")]
+    public ActionResult<IEnumerable<Player>> GetLocalPlayer(int pid, int range)
+    {
+      Player tp = _db.Players.FirstOrDefault(p=>p.PlayerId == pid);
+      List<Player> target = _db.Players.AsQueryable()
+        .Where(t=>t.PlayerId!=pid&&(t.X>=(tp.X-range)&&t.X<=(tp.X+range))&&(t.Y>=(tp.Y-range)&&t.Y<=(tp.Y+range))).OrderBy(t=>t.Y).ThenBy(t=>t.X).ToList();
+      return target;
+    }
+
+    [HttpGet("AllPlayers")]
+    public async Task<ActionResult<IEnumerable<Player>>> GetAllPlayer()
+    {
+      
+      return await _db.Players.ToListAsync();
+    }
+
+
+    [HttpGet("player")]
+    public async Task<ActionResult<Player>> GetPlayer(int id)
+    {
+      Player target = await _db.Players.FindAsync(id);
+      return target;
+    }
+    [HttpGet("user")]
+    public ActionResult<Player> GetPlayerById(string pid)
+    {
+      Player target = _db.Players.FirstOrDefault(p=>p.UserId==pid);
+      return target;
+    }
+
+
+    [HttpGet("move")]
+    public async Task<ActionResult<Player>> MovePlayer(int pid, bool n, bool s, bool e, bool w)
+    {
+      int[] Destination = GetDestination(pid, n, s, e, w);
+      Player target = await _db.Players.FindAsync(pid);
+
+      if (Destination[0]!=target.X||Destination[1]!=target.Y||Destination[2]!=target.Z)
+      {
+        if(CheckTransparency(Destination[0],Destination[1],Destination[2]))
+        {
+          bool leaving = true;
+          dave.TileAction(target, leaving);
+          leaving = false;
+          target.X = Destination[0];
+          target.Y = Destination[1];
+          target.Z = Destination[2];
+          _db.Entry(target).State = EntityState.Modified;
+          await _db.SaveChangesAsync();
+          dave.TileAction(target, leaving);
+        }
+      }
+      return RedirectToAction("GetPlayer", new {id = pid});
+    }
 
 
   
