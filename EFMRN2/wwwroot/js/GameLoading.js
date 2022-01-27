@@ -54,7 +54,15 @@ async function go()
   var back = await getMove(apiString);
   drawLocalPlayers(PlayerId, back);
   updateMap2();
+  getMessage();
+  // if(m!="NoMessages")
+  // {
+  //   let a = m.split("/");
+  //   advanceText(a);
+  // }
 }
+
+
 
 function takeInput(){
   let keyStates=[(38 in keysDown ),(40 in keysDown),(39 in keysDown),(37 in keysDown)];
@@ -234,15 +242,59 @@ async function getPlayerByUser(id)
       return error.message;
     }
 }
-async function getMessage()
+// async function getMessage()
+// {
+//   try{
+//     const response = await fetch(`http://localhost:5000/api/Game/checkMes`);
+//     if(!response.ok) {
+//         throw Error(response.statusText);        
+//       }
+//       return response;
+//     } catch(error) {  
+//       return error.message;
+//     }
+// }
+async function setMessage()
 {
   try{
-    const response = await fetch(`http://localhost:5000/api/Game/checkMes`);
+    const response = await fetch(`http://localhost:5000/api/Game/setMes/?message=NoMessages`);
     if(!response.ok) {
         throw Error(response.statusText);        
       }
-      return response.json();
+      return response;
     } catch(error) {  
       return error.message;
     }
+}
+async function getMessage()
+{
+  fetch(`http://localhost:5000/api/Game/checkMes`)
+    .then(response => response.text())
+    .then((response) => {
+        console.log(response);
+
+        if(response!="NoMessages")
+        {
+          
+          console.log("trigger ran");
+          advanceText(response.split("_"));
+        }
+    });
+}
+
+
+function advanceText(textArr) {
+  let currentText = 0;
+  $('#dark-screen').css('display', 'flex');
+  $('#current-text').text(textArr[currentText]);
+  $('#next-btn').on('click', function() {
+    
+    currentText ++;
+    if(currentText < textArr.length) {
+      $('#current-text').text(textArr[currentText]);
+    } else {
+      $('#dark-screen').css('display', 'none');
+    }
+  })
+  setMessage();
 }
