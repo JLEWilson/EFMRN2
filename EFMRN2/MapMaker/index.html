@@ -30,23 +30,26 @@
       <label for="type">Type of tile</label>
       <select name='type' id='type'>
         <option id="void">void</option>
-        <option id="wall">wall</option>
         <option id="floor">floor</option>
+        <option id="darkfloor">darkfloor</option>
+        <option id="carpet1">carpet1</option>
+        <option id="carpet2">carpet2</option>
+        <option id="carpet3">carpet3</option>
+        <option id="carpet4">carpet4</option>
+        <option id="carpet4fancy">carpet4fancy</option>
+        <option id="wall">wall</option>
+        <option id="hedge">hedge</option>
+        <option id="window">window</option>
+        <option id="grass">grass</option>
+        <option id="grass2">grass2</option>
+        <option id="grass3">grass3</option>
+        <option id="hedge">hole</option>
+        <option id="mud">mud</option>
+        <option id="ice">ice</option>
+        <option id="lava">lava</option>
+        <option id="pressure">pressure</option>
         <option id="door">door</option>
-        <option id="table">table</option>
-        <option id="lockedDoor">lockedDoor</option>
-        <option id="key">key</option>
-        <option id="conveyerN">conveyerN</option>
-        <option id="conveyerE">conveyerE</option>
-        <option id="conveyerS">conveyerS</option>
-        <option id="conveyerW">conveyerW</option>
-        <option id="conveyerButton">conveyerButton</option>
-        <option id="hole">hole</option>
-        <option id="trapDoor">trapDoor</option>
-        <option id="messageTile">messageTile</option>
-        <option id="portalTile">portalTile</option>
-        <option id="lavaTile">lavaTile</option>
-        <option id="spikePitTile">spikePitTile</option>
+        <option id="trapdoor">door</option>
       </select>
       </br>
       </br>
@@ -65,24 +68,27 @@
         
       <label for="texture-select">select texture string</label>
       <select name='texture-select' id='texture-select'>
-        <option id="void" value="void">void</option>
-        <option id="floor" value="floor">floor</option>
-        <option id="wall" value="wall">wall</option>
-        <option id="door" value="door">door</option>
-        <option id="table" value="table">table</option>
-        <option id="lockedDoor" value="lockedDoor">lockedDoor</option>
-        <option id="key" value="key">key</option>
-        <option id="conveyorN" value="conveyorN">conveyorN</option>
-        <option id="conveyerE" value="conveyorE">conveyerE</option>
-        <option id="conveyorS" value="conveyorS">conveyorS</option>
-        <option id="conveyerW" value="conveyorW">conveyerW</option>
-        <option id="converyButton" value="conveyorButton">conveyerButton</option>
-        <option id="hole" value="hole">hole</option>
-        <option id="trapDoor" value="trapDoor">trapDoor</option>
-        <option id="messageTile" value="messageTile">messageTile</option>
-        <option id="portalTile" value="portalTile">portalTile</option>
-        <option id="lavaTile" value="lavaTile">lavaTile</option>
-        <option id="spikePitTile" value="spikePitTile">spikePitTile</option>
+        <option value="void" id="void">void</option>
+        <option value="floor" id="floor">floor</option>
+        <option value="darkfloor" id="darkfloor">darkfloor</option>
+        <option value="carpet1" id="carpet1">carpet1</option>
+        <option value="carpet2" id="carpet2">carpet2</option>
+        <option value="carpet3" id="carpet3">carpet3</option>
+        <option value="carpet4" id="carpet4">carpet4</option>
+        <option value="carpet4fancy" id="carpet4fancy">carpet4fancy</option>
+        <option value="wall" id="wall">wall</option>
+        <option value="hedge" id="hedge">hedge</option>
+        <option value="window" id="window">window</option>
+        <option value="grass" id="grass">grass</option>
+        <option value="grass2" id="grass2">grass2</option>
+        <option value="grass3" id="grass3">grass3</option>
+        <option value="hedge" id="hedge">hole</option>
+        <option value="mud" id="mud">mud</option>
+        <option value="ice" id="ice">ice</option>
+        <option value="lava" id="lava">lava</option>
+        <option value="pressure" id="pressure">pressure</option>
+        <option value="door" id="door">door</option>
+        <option value="trapdoor" id="trapdoor">trapdoor</option>
       </select>
       </br>
       </br>
@@ -107,6 +113,57 @@
     </label>
     
   </div>
+
+  <h3>Tile Key</h3>
+  <ul id="tile-key">
+    <li>Door:</li>
+    <ul>
+      <li>Method =1</li>
+      <li>Aux = Id of destination tile</li>
+    </ul>
+  </br>
+
+    <li>Mud:</li>
+    <ul>
+      <li>Method =2</li>
+      <li>Aux = 0</li>
+    </ul>
+  </br>
+
+    <li>PressurePlateToggle:</li>
+    <ul>
+      <li>Method =3</li>
+      <li>Aux = Id of target wall tile</li>
+    </ul>
+  </br>
+
+    <li>PressurePlateKey:</li>
+    <ul>
+      <li>Method =4</li>
+      <li>Aux = Id of target wall tile</li>
+    </ul>
+  </br>
+
+    <li>Ice:</li>
+    <ul>
+      <li>Method =5</li>
+      <li>Aux = 0</li>
+    </ul>
+  </br>
+
+    <li>TrapDoor:</li>
+    <ul>
+      <li>Method = 6</li>
+      <li>Aux = Id of destination tile</li>
+    </ul>
+  </br>
+
+    <li>Lava:</li>
+    <ul>
+      <li>Method = 7</li>
+      <li>Aux = 0</li>
+    </ul>
+  </ul>
 </body> 
 <script src="index.js"></script>
 </html>

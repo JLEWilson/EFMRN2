@@ -53,24 +53,27 @@ $(document).ready(function() {
 
     
     let translator = {  
-      floor: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'floor', Aux = '0', Method = 0 }",
-      wall: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = false, Texture = 'wall', Aux = '0', Method = 0 }",
-      void: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = false, Texture = 'void', Aux = '0', Method = 0 }",
-      door: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'door', Aux = '0', Method = 1 }",
-      lockedDoor: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = false, Texture = 'lockedDoor', Aux = '0', Method = 1 }",
-      key: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'key', Aux = '0', Method = 2 }",
-      table: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = false, Texture = 'table', Aux = '0', Method = 0 }",
-      hole:"new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'hole', Aux = '0', Method = 1 }",
-      conveyerN: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'conveyerN', Aux = '0', Method = 2 }",
-      conveyerE: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'conveyerE', Aux = '0', Method = 3 }",
-      conveyerS: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'conveyerS', Aux = '0', Method = 4 }",
-      conveyerW: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'conveyerW', Aux = '0', Method = 5 }",
-      conveyerButton: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'conveyerButton', Aux = '', Method = 6 }",
-      trapDoor: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'trapDoor', Aux = '0', Method = 7 }",
-      messageTile: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'floor', Aux = '0', Method = 8 }",
-      portalTile: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'portal', Aux = '0', Method = 1 }",
-      lavaTile: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'lava', Aux = '0', Method = 9 }",
-      spikePitTile: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'spikePit', Aux = '0', Method = 9 }"
+      void : "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'floor', Aux = '0', Method = 0 }",
+      floor : "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'floor', Aux = '0', Method = 0 }",
+      carpet1 : "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'floor', Aux = '0', Method = 0 }",
+      carpet2: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'floor', Aux = '0', Method = 0 }",
+      carpet3: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'floor', Aux = '0', Method = 0 }",
+      carpet4: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'floor', Aux = '0', Method = 0 }",
+      carpet4fancy: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'floor', Aux = '0', Method = 0 }",
+      wall: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'floor', Aux = '0', Method = 0 }",
+      hedge: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'floor', Aux = '0', Method = 0 }",
+      window: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'floor', Aux = '0', Method = 0 }",
+      darkfloor: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'floor', Aux = '0', Method = 0 }",
+      grass : "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'floor', Aux = '0', Method = 0 }",
+      grass2: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'floor', Aux = '0', Method = 0 }",
+      grass3: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'floor', Aux = '0', Method = 0 }",
+      hedge: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'floor', Aux = '0', Method = 0 }",
+      mud: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'floor', Aux = '0', Method = 0 }",
+      ice: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'floor', Aux = '0', Method = 0 }",
+      lava: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'floor', Aux = '0', Method = 0 }",
+      pressure: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'floor', Aux = '0', Method = 0 }",
+      door: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'floor', Aux = '0', Method = 0 }",
+      trapdoor: "new Tile { TileId = 1, X = 0, Y = 4, Z = " + z + ", Transparent = true, Texture = 'floor', Aux = '0', Method = 0 }"
     }
 
     let output = [];

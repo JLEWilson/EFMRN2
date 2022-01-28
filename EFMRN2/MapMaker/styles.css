@@ -34,7 +34,11 @@
 }
 
 .floor {
-  background-color: rgb(81, 139, 81);
+  background-color: rgb(197, 189, 112);
+}
+
+.darkfloor {
+  background-color: rgb(131, 121, 100);
 }
 
 .wall {
@@ -45,47 +49,59 @@
   background-color: white;
 }
 
-.lockedDoor {
+.carpet1 {
   background-color: rgba(255, 255, 255, 0.808);
 }
 
-.key {
+.carpet2 {
   background-color: gold;
 }
 
-.conveyerN {
+.carpet3 {
   background-color: wheat;
 }
 
-.conveyerE {
+.carpet4 {
   background-color: wheat;
 }
 
-.conveyerS {
+.carpet4fancy {
   background-color: wheat;
 }
 
-.conveyerW {
+.window {
   background-color: wheat;
 }
 
-.hole {
-  background-color:rgb(138, 74, 49);
+.trapdoor {
+  background-color:rgb(21, 60, 119);
 }
 
-.table {
-  background-color: rgb(66, 51, 40);
+.pressure {
+  background-color: rgb(196, 81, 211)
 }
 
-.conveyerButton {
-  background-color: purple
+.grass {
+  background-color: rgb(135, 173, 74)
 }
 
-.messageTile {
-  background-color: royalblue;
+.grass2 {
+  background-color: rgb(92, 119, 49)
 }
 
-.portalTile {
+.grass3 {
+  background-color: rgb(152, 216, 50)
+}
+
+.hedge {
+  background-color: rgb(6, 82, 10);
+}
+
+.mud {
+  background-color: rgb(61, 42, 23);
+}
+
+.ice {
   background-color: aqua;
 }
 
@@ -93,6 +109,3 @@
   background-color: rgb(206, 27, 3);
 }
 
-.spikePitTile {
-  background-color: rgb(71, 233, 79);
-}
